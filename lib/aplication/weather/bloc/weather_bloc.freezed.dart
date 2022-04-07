@@ -306,8 +306,7 @@ class _$WeatherStateTearOff {
 
   _MainDataOptions mainDataOptions(
       {required bool onLoading,
-      required Option<Either<String, ForecastingWeatherResponse>>
-          weatherData}) {
+      required Option<Either<String, ForecastingListResponse>> weatherData}) {
     return _MainDataOptions(
       onLoading: onLoading,
       weatherData: weatherData,
@@ -324,7 +323,7 @@ mixin _$WeatherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)
+            Option<Either<String, ForecastingListResponse>> weatherData)
         mainDataOptions,
   }) =>
       throw _privateConstructorUsedError;
@@ -332,7 +331,7 @@ mixin _$WeatherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+            Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
   }) =>
       throw _privateConstructorUsedError;
@@ -340,7 +339,7 @@ mixin _$WeatherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+            Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
     required TResult orElse(),
   }) =>
@@ -422,7 +421,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)
+            Option<Either<String, ForecastingListResponse>> weatherData)
         mainDataOptions,
   }) {
     return initial();
@@ -433,7 +432,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+            Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
   }) {
     return initial?.call();
@@ -444,7 +443,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+            Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
     required TResult orElse(),
   }) {
@@ -497,7 +496,7 @@ abstract class _$MainDataOptionsCopyWith<$Res> {
       __$MainDataOptionsCopyWithImpl<$Res>;
   $Res call(
       {bool onLoading,
-      Option<Either<String, ForecastingWeatherResponse>> weatherData});
+      Option<Either<String, ForecastingListResponse>> weatherData});
 }
 
 /// @nodoc
@@ -524,7 +523,7 @@ class __$MainDataOptionsCopyWithImpl<$Res>
       weatherData: weatherData == freezed
           ? _value.weatherData
           : weatherData // ignore: cast_nullable_to_non_nullable
-              as Option<Either<String, ForecastingWeatherResponse>>,
+              as Option<Either<String, ForecastingListResponse>>,
     ));
   }
 }
@@ -538,7 +537,7 @@ class _$_MainDataOptions implements _MainDataOptions {
   @override
   final bool onLoading;
   @override
-  final Option<Either<String, ForecastingWeatherResponse>> weatherData;
+  final Option<Either<String, ForecastingListResponse>> weatherData;
 
   @override
   String toString() {
@@ -571,7 +570,7 @@ class _$_MainDataOptions implements _MainDataOptions {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)
+            Option<Either<String, ForecastingListResponse>> weatherData)
         mainDataOptions,
   }) {
     return mainDataOptions(onLoading, weatherData);
@@ -582,7 +581,7 @@ class _$_MainDataOptions implements _MainDataOptions {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+            Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
   }) {
     return mainDataOptions?.call(onLoading, weatherData);
@@ -593,7 +592,7 @@ class _$_MainDataOptions implements _MainDataOptions {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+            Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
     required TResult orElse(),
   }) {
@@ -638,11 +637,11 @@ class _$_MainDataOptions implements _MainDataOptions {
 abstract class _MainDataOptions implements WeatherState {
   const factory _MainDataOptions(
       {required bool onLoading,
-      required Option<Either<String, ForecastingWeatherResponse>>
+      required Option<Either<String, ForecastingListResponse>>
           weatherData}) = _$_MainDataOptions;
 
   bool get onLoading;
-  Option<Either<String, ForecastingWeatherResponse>> get weatherData;
+  Option<Either<String, ForecastingListResponse>> get weatherData;
   @JsonKey(ignore: true)
   _$MainDataOptionsCopyWith<_MainDataOptions> get copyWith =>
       throw _privateConstructorUsedError;

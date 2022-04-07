@@ -11,7 +11,7 @@ class ForecastingWeatherRepository extends ForecastingWeatherInterface {
   ForecastingWeatherRepository(this.dio);
 
   @override
-  Future<Either<String, ForecastingMainResponse>> getAllDataMain() async {
+  Future<Either<String, ForecastingListResponse>> getAllDataMain() async {
     dio = Dio();
 
     Response response;
@@ -19,16 +19,11 @@ class ForecastingWeatherRepository extends ForecastingWeatherInterface {
     try {
       response = await dio.get(
           'https://api.openweathermap.org/data/2.5/forecast?q=aceh&appid=3c0c18d0074083b707c67fba21ee7cff');
-      //mengambil seluruh data
       final _result = response.data;
-      // print(_result.toString());
-      //mengubah data
-      // final data = ForecastingMainResponse.fromJson(_result);
-      final list = ForecastingMainResponse.fromJson(_result);
+      final data = ForecastingListResponse.fromJson(_result);
+      print(data.list);
 
-      // print(data.main);
-      print(list);
-      return right(list);
+      return right(data);
     } catch (e) {
       print(e.toString());
       return left(e.toString());

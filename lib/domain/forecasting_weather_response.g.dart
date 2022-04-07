@@ -6,6 +6,23 @@ part of 'forecasting_weather_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$ForecastingListResponse _$$ForecastingListResponseFromJson(
+        Map<String, dynamic> json) =>
+    _$ForecastingListResponse(
+      (json['list'] as List<dynamic>)
+          .map((e) =>
+              ForecastingMainResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ForecastingListResponseToJson(
+        _$ForecastingListResponse instance) =>
+    <String, dynamic>{
+      'list': instance.list,
+      'runtimeType': instance.$type,
+    };
+
 _$ForecastingMainResponse _$$ForecastingMainResponseFromJson(
         Map<String, dynamic> json) =>
     _$ForecastingMainResponse(
