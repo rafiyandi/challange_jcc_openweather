@@ -9,7 +9,7 @@ part of 'forecasting_weather.dart';
 _$ForecastingMainData _$$ForecastingMainDataFromJson(
         Map<String, dynamic> json) =>
     _$ForecastingMainData(
-      json['temp'] as int,
+      (json['temp'] as num).toDouble(),
       json['pressure'] as int,
       json['humidity'] as int,
       $type: json['runtimeType'] as String?,

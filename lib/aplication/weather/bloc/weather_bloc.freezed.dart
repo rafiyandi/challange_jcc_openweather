@@ -18,10 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$WeatherEventTearOff {
   const _$WeatherEventTearOff();
 
-  _Started started() {
-    return const _Started();
-  }
-
   GetMainData getMainData() {
     return const GetMainData();
   }
@@ -38,21 +34,18 @@ const $WeatherEvent = _$WeatherEventTearOff();
 mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() getMainData,
     required TResult Function() getCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getMainData,
     TResult Function()? getCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getMainData,
     TResult Function()? getCityData,
     required TResult orElse(),
@@ -60,21 +53,18 @@ mixin _$WeatherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(GetMainData value) getMainData,
     required TResult Function(GetCityData value) getCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(GetMainData value)? getMainData,
     TResult Function(GetCityData value)? getCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(GetMainData value)? getMainData,
     TResult Function(GetCityData value)? getCityData,
     required TResult orElse(),
@@ -96,114 +86,6 @@ class _$WeatherEventCopyWithImpl<$Res> implements $WeatherEventCopyWith<$Res> {
   final WeatherEvent _value;
   // ignore: unused_field
   final $Res Function(WeatherEvent) _then;
-}
-
-/// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$WeatherEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
-
-  @override
-  _Started get _value => super._value as _Started;
-}
-
-/// @nodoc
-
-class _$_Started implements _Started {
-  const _$_Started();
-
-  @override
-  String toString() {
-    return 'WeatherEvent.started()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() getMainData,
-    required TResult Function() getCityData,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? getMainData,
-    TResult Function()? getCityData,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? getMainData,
-    TResult Function()? getCityData,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(GetMainData value) getMainData,
-    required TResult Function(GetCityData value) getCityData,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(GetMainData value)? getMainData,
-    TResult Function(GetCityData value)? getCityData,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(GetMainData value)? getMainData,
-    TResult Function(GetCityData value)? getCityData,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements WeatherEvent {
-  const factory _Started() = _$_Started;
 }
 
 /// @nodoc
@@ -246,7 +128,6 @@ class _$GetMainData implements GetMainData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() getMainData,
     required TResult Function() getCityData,
   }) {
@@ -256,7 +137,6 @@ class _$GetMainData implements GetMainData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getMainData,
     TResult Function()? getCityData,
   }) {
@@ -266,7 +146,6 @@ class _$GetMainData implements GetMainData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getMainData,
     TResult Function()? getCityData,
     required TResult orElse(),
@@ -280,7 +159,6 @@ class _$GetMainData implements GetMainData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(GetMainData value) getMainData,
     required TResult Function(GetCityData value) getCityData,
   }) {
@@ -290,7 +168,6 @@ class _$GetMainData implements GetMainData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(GetMainData value)? getMainData,
     TResult Function(GetCityData value)? getCityData,
   }) {
@@ -300,7 +177,6 @@ class _$GetMainData implements GetMainData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(GetMainData value)? getMainData,
     TResult Function(GetCityData value)? getCityData,
     required TResult orElse(),
@@ -356,7 +232,6 @@ class _$GetCityData implements GetCityData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() getMainData,
     required TResult Function() getCityData,
   }) {
@@ -366,7 +241,6 @@ class _$GetCityData implements GetCityData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getMainData,
     TResult Function()? getCityData,
   }) {
@@ -376,7 +250,6 @@ class _$GetCityData implements GetCityData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getMainData,
     TResult Function()? getCityData,
     required TResult orElse(),
@@ -390,7 +263,6 @@ class _$GetCityData implements GetCityData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(GetMainData value) getMainData,
     required TResult Function(GetCityData value) getCityData,
   }) {
@@ -400,7 +272,6 @@ class _$GetCityData implements GetCityData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(GetMainData value)? getMainData,
     TResult Function(GetCityData value)? getCityData,
   }) {
@@ -410,7 +281,6 @@ class _$GetCityData implements GetCityData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(GetMainData value)? getMainData,
     TResult Function(GetCityData value)? getCityData,
     required TResult orElse(),
@@ -435,7 +305,9 @@ class _$WeatherStateTearOff {
   }
 
   _MainDataOptions mainDataOptions(
-      {required bool onLoading, required dynamic weatherData}) {
+      {required bool onLoading,
+      required Option<Either<String, ForecastingWeatherResponse>>
+          weatherData}) {
     return _MainDataOptions(
       onLoading: onLoading,
       weatherData: weatherData,
@@ -451,20 +323,25 @@ mixin _$WeatherState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(bool onLoading, dynamic weatherData)
+    required TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)
         mainDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(bool onLoading, dynamic weatherData)? mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+        mainDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(bool onLoading, dynamic weatherData)? mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+        mainDataOptions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -544,7 +421,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(bool onLoading, dynamic weatherData)
+    required TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)
         mainDataOptions,
   }) {
     return initial();
@@ -554,7 +432,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(bool onLoading, dynamic weatherData)? mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+        mainDataOptions,
   }) {
     return initial?.call();
   }
@@ -563,7 +443,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(bool onLoading, dynamic weatherData)? mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+        mainDataOptions,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -613,7 +495,9 @@ abstract class _$MainDataOptionsCopyWith<$Res> {
   factory _$MainDataOptionsCopyWith(
           _MainDataOptions value, $Res Function(_MainDataOptions) then) =
       __$MainDataOptionsCopyWithImpl<$Res>;
-  $Res call({bool onLoading, dynamic weatherData});
+  $Res call(
+      {bool onLoading,
+      Option<Either<String, ForecastingWeatherResponse>> weatherData});
 }
 
 /// @nodoc
@@ -637,7 +521,10 @@ class __$MainDataOptionsCopyWithImpl<$Res>
           ? _value.onLoading
           : onLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      weatherData: weatherData == freezed ? _value.weatherData : weatherData,
+      weatherData: weatherData == freezed
+          ? _value.weatherData
+          : weatherData // ignore: cast_nullable_to_non_nullable
+              as Option<Either<String, ForecastingWeatherResponse>>,
     ));
   }
 }
@@ -651,7 +538,7 @@ class _$_MainDataOptions implements _MainDataOptions {
   @override
   final bool onLoading;
   @override
-  final dynamic weatherData;
+  final Option<Either<String, ForecastingWeatherResponse>> weatherData;
 
   @override
   String toString() {
@@ -683,7 +570,8 @@ class _$_MainDataOptions implements _MainDataOptions {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(bool onLoading, dynamic weatherData)
+    required TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)
         mainDataOptions,
   }) {
     return mainDataOptions(onLoading, weatherData);
@@ -693,7 +581,9 @@ class _$_MainDataOptions implements _MainDataOptions {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(bool onLoading, dynamic weatherData)? mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+        mainDataOptions,
   }) {
     return mainDataOptions?.call(onLoading, weatherData);
   }
@@ -702,7 +592,9 @@ class _$_MainDataOptions implements _MainDataOptions {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(bool onLoading, dynamic weatherData)? mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, ForecastingWeatherResponse>> weatherData)?
+        mainDataOptions,
     required TResult orElse(),
   }) {
     if (mainDataOptions != null) {
@@ -746,10 +638,11 @@ class _$_MainDataOptions implements _MainDataOptions {
 abstract class _MainDataOptions implements WeatherState {
   const factory _MainDataOptions(
       {required bool onLoading,
-      required dynamic weatherData}) = _$_MainDataOptions;
+      required Option<Either<String, ForecastingWeatherResponse>>
+          weatherData}) = _$_MainDataOptions;
 
   bool get onLoading;
-  dynamic get weatherData;
+  Option<Either<String, ForecastingWeatherResponse>> get weatherData;
   @JsonKey(ignore: true)
   _$MainDataOptionsCopyWith<_MainDataOptions> get copyWith =>
       throw _privateConstructorUsedError;

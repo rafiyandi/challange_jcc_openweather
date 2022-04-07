@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:forecasting/infrastukstur/forecasting_weather_repository.dart';
+import 'package:forecasting/aplication/weather/bloc/weather_bloc.dart';
+import 'package:forecasting/injection.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({Key? key}) : super(key: key);
@@ -14,18 +16,25 @@ class _WeatherPageState extends State<WeatherPage> {
     return Scaffold(
       appBar: AppBar(title: Text("Tes Data")),
       body: Container(
-        child: Center(
-          child: Column(
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    // _weatherRepository.getAllDataWeather();
-                  },
-                  child: Text("Tekan Akuh"))
-            ],
-          ),
-        ),
-      ),
+          child: BlocProvider(
+        create: (context) => getIt<WeatherBloc>(),
+        child:
+            BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
+          return Container(
+            child: Column(
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      context
+                          .read<WeatherBloc>()
+                          .add(WeatherEvent.getMainData());
+                    },
+                    child: Text("Tekan Akuh "))
+              ],
+            ),
+          );
+        }),
+      )),
     );
   }
 }

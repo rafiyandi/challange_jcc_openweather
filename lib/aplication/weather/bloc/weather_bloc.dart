@@ -3,13 +3,15 @@ import 'package:dartz/dartz.dart';
 import 'package:forecasting/domain/forecasting_weather_interface.dart';
 import 'package:forecasting/domain/forecasting_weather_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:injectable/injectable.dart';
 part 'weather_event.dart';
 part 'weather_state.dart';
 part 'weather_bloc.freezed.dart';
 
+@injectable
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  WeatherBloc(this._forecastingWeatherInterface) : super(_Initial());
+  WeatherBloc(this._forecastingWeatherInterface)
+      : super(WeatherState.initial());
 
   ForecastingWeatherInterface _forecastingWeatherInterface;
 
@@ -17,7 +19,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     WeatherEvent event,
   ) async* {
     yield* event.map(
-        started: (e) async* {},
         getMainData: (e) async* {
           yield WeatherState.mainDataOptions(
               onLoading: true, weatherData: none());

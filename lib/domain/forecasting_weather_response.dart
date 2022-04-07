@@ -5,7 +5,11 @@ part 'forecasting_weather_response.freezed.dart';
 part 'forecasting_weather_response.g.dart';
 
 @freezed
-abstract class ForecastingWeatherResponse {
+abstract class ForecastingWeatherResponse with _$ForecastingWeatherResponse {
+  // factory ForecastingWeatherResponse.forecastingListResponse(
+  //   List<ForecastingMainResponse> list,
+  // ) = ForecastingListResponse;
+
   factory ForecastingWeatherResponse.forecastingMainResponse(
     ForecastingMainData main,
     List<ForecastingWeatherData> weather,

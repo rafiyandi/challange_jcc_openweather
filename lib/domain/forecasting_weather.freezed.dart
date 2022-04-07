@@ -34,7 +34,7 @@ class _$ForecastingWeatherTearOff {
   const _$ForecastingWeatherTearOff();
 
   ForecastingMainData forecastingMainData(
-      int temp, int pressure, int humidity) {
+      double temp, int pressure, int humidity) {
     return ForecastingMainData(
       temp,
       pressure,
@@ -69,7 +69,7 @@ const $ForecastingWeather = _$ForecastingWeatherTearOff();
 mixin _$ForecastingWeather {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int temp, int pressure, int humidity)
+    required TResult Function(double temp, int pressure, int humidity)
         forecastingMainData,
     required TResult Function(String main, String description, String icon)
         forecastingWeatherData,
@@ -78,7 +78,8 @@ mixin _$ForecastingWeather {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int temp, int pressure, int humidity)? forecastingMainData,
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
     TResult Function(String name)? forecastingCityData,
@@ -86,7 +87,8 @@ mixin _$ForecastingWeather {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int temp, int pressure, int humidity)? forecastingMainData,
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
     TResult Function(String name)? forecastingCityData,
@@ -141,7 +143,7 @@ abstract class $ForecastingMainDataCopyWith<$Res> {
   factory $ForecastingMainDataCopyWith(
           ForecastingMainData value, $Res Function(ForecastingMainData) then) =
       _$ForecastingMainDataCopyWithImpl<$Res>;
-  $Res call({int temp, int pressure, int humidity});
+  $Res call({double temp, int pressure, int humidity});
 }
 
 /// @nodoc
@@ -165,7 +167,7 @@ class _$ForecastingMainDataCopyWithImpl<$Res>
       temp == freezed
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       pressure == freezed
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -189,7 +191,7 @@ class _$ForecastingMainData implements ForecastingMainData {
       _$$ForecastingMainDataFromJson(json);
 
   @override
-  final int temp;
+  final double temp;
   @override
   final int pressure;
   @override
@@ -228,7 +230,7 @@ class _$ForecastingMainData implements ForecastingMainData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int temp, int pressure, int humidity)
+    required TResult Function(double temp, int pressure, int humidity)
         forecastingMainData,
     required TResult Function(String main, String description, String icon)
         forecastingWeatherData,
@@ -240,7 +242,8 @@ class _$ForecastingMainData implements ForecastingMainData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int temp, int pressure, int humidity)? forecastingMainData,
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
     TResult Function(String name)? forecastingCityData,
@@ -251,7 +254,8 @@ class _$ForecastingMainData implements ForecastingMainData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int temp, int pressure, int humidity)? forecastingMainData,
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
     TResult Function(String name)? forecastingCityData,
@@ -305,13 +309,13 @@ class _$ForecastingMainData implements ForecastingMainData {
 }
 
 abstract class ForecastingMainData implements ForecastingWeather {
-  factory ForecastingMainData(int temp, int pressure, int humidity) =
+  factory ForecastingMainData(double temp, int pressure, int humidity) =
       _$ForecastingMainData;
 
   factory ForecastingMainData.fromJson(Map<String, dynamic> json) =
       _$ForecastingMainData.fromJson;
 
-  int get temp;
+  double get temp;
   int get pressure;
   int get humidity;
   @JsonKey(ignore: true)
@@ -413,7 +417,7 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int temp, int pressure, int humidity)
+    required TResult Function(double temp, int pressure, int humidity)
         forecastingMainData,
     required TResult Function(String main, String description, String icon)
         forecastingWeatherData,
@@ -425,7 +429,8 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int temp, int pressure, int humidity)? forecastingMainData,
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
     TResult Function(String name)? forecastingCityData,
@@ -436,7 +441,8 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int temp, int pressure, int humidity)? forecastingMainData,
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
     TResult Function(String name)? forecastingCityData,
@@ -576,7 +582,7 @@ class _$ForecastingCityData implements ForecastingCityData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int temp, int pressure, int humidity)
+    required TResult Function(double temp, int pressure, int humidity)
         forecastingMainData,
     required TResult Function(String main, String description, String icon)
         forecastingWeatherData,
@@ -588,7 +594,8 @@ class _$ForecastingCityData implements ForecastingCityData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int temp, int pressure, int humidity)? forecastingMainData,
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
     TResult Function(String name)? forecastingCityData,
@@ -599,7 +606,8 @@ class _$ForecastingCityData implements ForecastingCityData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int temp, int pressure, int humidity)? forecastingMainData,
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
     TResult Function(String name)? forecastingCityData,

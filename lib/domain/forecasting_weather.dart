@@ -6,7 +6,7 @@ part 'forecasting_weather.g.dart';
 @freezed
 abstract class ForecastingWeather with _$ForecastingWeather {
   factory ForecastingWeather.forecastingMainData(
-    int temp,
+    double temp,
     int pressure,
     int humidity,
   ) = ForecastingMainData;
