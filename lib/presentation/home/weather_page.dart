@@ -47,8 +47,7 @@ class _WeatherPageState extends State<WeatherPage> {
                                         itemCount: r.list.length,
                                         itemBuilder: (context, index) {
                                           return ListTile(
-                                            title: Text(r
-                                                .list[index].main.humidity
+                                            title: Text(r.list[index].main.temp
                                                 .toString()),
                                           );
                                         },

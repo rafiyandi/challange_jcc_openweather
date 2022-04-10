@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:forecasting/domain/forecasting_weather_interface.dart';
-import 'package:forecasting/domain/forecasting_weather_response.dart';
+import 'package:forecasting/domain/weather/forecasting_weather_interface.dart';
+import 'package:forecasting/domain/weather/forecasting_weather_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 part 'weather_event.dart';

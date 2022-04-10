@@ -1,4 +1,4 @@
-import 'package:forecasting/domain/forecasting_weather.dart';
+import 'package:forecasting/domain/weather/forecasting_weather.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'forecasting_weather_response.freezed.dart';

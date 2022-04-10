@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:forecasting/domain/forecasting_weather_interface.dart';
-import 'package:forecasting/domain/forecasting_weather_response.dart';
+import 'package:forecasting/domain/weather/forecasting_weather_interface.dart';
+import 'package:forecasting/domain/weather/forecasting_weather_response.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ForecastingWeatherInterface)
