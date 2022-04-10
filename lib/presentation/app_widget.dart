@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forecasting/presentation/home/location/location_page.dart';
 import 'package:forecasting/presentation/home/weather_page.dart';
 import 'package:forecasting/presentation/splash_screen/splash_screen.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: WeatherPage(),
+      home: LocationPage(),
     );
   }
 }
