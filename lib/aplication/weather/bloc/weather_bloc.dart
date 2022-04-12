@@ -19,14 +19,15 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     WeatherEvent event,
   ) async* {
     yield* event.map(
-        getMainData: (e) async* {
-          yield WeatherState.mainDataOptions(
-              onLoading: true, weatherData: none());
+      getMainData: (e) async* {
+        yield WeatherState.mainDataOptions(
+            onLoading: true, weatherData: none());
 
-          final _result = await _forecastingWeatherInterface.getAllDataMain();
-          yield WeatherState.mainDataOptions(
-              onLoading: false, weatherData: some(_result));
-        },
-        getCityData: (e) async* {});
+        final _result = await _forecastingWeatherInterface
+            .getDataWeatherCityName(cityName: e.cityName);
+        yield WeatherState.mainDataOptions(
+            onLoading: false, weatherData: some(_result));
+      },
+    );
   }
 }

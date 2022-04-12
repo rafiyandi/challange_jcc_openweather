@@ -20,8 +20,6 @@ ForecastingWeather _$ForecastingWeatherFromJson(Map<String, dynamic> json) {
       return ForecastingMainData.fromJson(json);
     case 'forecastingWeatherData':
       return ForecastingWeatherData.fromJson(json);
-    case 'forecastingCityData':
-      return ForecastingCityData.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'ForecastingWeather',
@@ -51,12 +49,6 @@ class _$ForecastingWeatherTearOff {
     );
   }
 
-  ForecastingCityData forecastingCityData(String name) {
-    return ForecastingCityData(
-      name,
-    );
-  }
-
   ForecastingWeather fromJson(Map<String, Object?> json) {
     return ForecastingWeather.fromJson(json);
   }
@@ -73,7 +65,6 @@ mixin _$ForecastingWeather {
         forecastingMainData,
     required TResult Function(String main, String description, String icon)
         forecastingWeatherData,
-    required TResult Function(String name) forecastingCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,7 +73,6 @@ mixin _$ForecastingWeather {
         forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
-    TResult Function(String name)? forecastingCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -91,7 +81,6 @@ mixin _$ForecastingWeather {
         forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
-    TResult Function(String name)? forecastingCityData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -100,21 +89,18 @@ mixin _$ForecastingWeather {
     required TResult Function(ForecastingMainData value) forecastingMainData,
     required TResult Function(ForecastingWeatherData value)
         forecastingWeatherData,
-    required TResult Function(ForecastingCityData value) forecastingCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ForecastingMainData value)? forecastingMainData,
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
-    TResult Function(ForecastingCityData value)? forecastingCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ForecastingMainData value)? forecastingMainData,
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
-    TResult Function(ForecastingCityData value)? forecastingCityData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -234,7 +220,6 @@ class _$ForecastingMainData implements ForecastingMainData {
         forecastingMainData,
     required TResult Function(String main, String description, String icon)
         forecastingWeatherData,
-    required TResult Function(String name) forecastingCityData,
   }) {
     return forecastingMainData(temp, pressure, humidity);
   }
@@ -246,7 +231,6 @@ class _$ForecastingMainData implements ForecastingMainData {
         forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
-    TResult Function(String name)? forecastingCityData,
   }) {
     return forecastingMainData?.call(temp, pressure, humidity);
   }
@@ -258,7 +242,6 @@ class _$ForecastingMainData implements ForecastingMainData {
         forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
-    TResult Function(String name)? forecastingCityData,
     required TResult orElse(),
   }) {
     if (forecastingMainData != null) {
@@ -273,7 +256,6 @@ class _$ForecastingMainData implements ForecastingMainData {
     required TResult Function(ForecastingMainData value) forecastingMainData,
     required TResult Function(ForecastingWeatherData value)
         forecastingWeatherData,
-    required TResult Function(ForecastingCityData value) forecastingCityData,
   }) {
     return forecastingMainData(this);
   }
@@ -283,7 +265,6 @@ class _$ForecastingMainData implements ForecastingMainData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ForecastingMainData value)? forecastingMainData,
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
-    TResult Function(ForecastingCityData value)? forecastingCityData,
   }) {
     return forecastingMainData?.call(this);
   }
@@ -293,7 +274,6 @@ class _$ForecastingMainData implements ForecastingMainData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ForecastingMainData value)? forecastingMainData,
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
-    TResult Function(ForecastingCityData value)? forecastingCityData,
     required TResult orElse(),
   }) {
     if (forecastingMainData != null) {
@@ -421,7 +401,6 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
         forecastingMainData,
     required TResult Function(String main, String description, String icon)
         forecastingWeatherData,
-    required TResult Function(String name) forecastingCityData,
   }) {
     return forecastingWeatherData(main, description, icon);
   }
@@ -433,7 +412,6 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
         forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
-    TResult Function(String name)? forecastingCityData,
   }) {
     return forecastingWeatherData?.call(main, description, icon);
   }
@@ -445,7 +423,6 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
         forecastingMainData,
     TResult Function(String main, String description, String icon)?
         forecastingWeatherData,
-    TResult Function(String name)? forecastingCityData,
     required TResult orElse(),
   }) {
     if (forecastingWeatherData != null) {
@@ -460,7 +437,6 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
     required TResult Function(ForecastingMainData value) forecastingMainData,
     required TResult Function(ForecastingWeatherData value)
         forecastingWeatherData,
-    required TResult Function(ForecastingCityData value) forecastingCityData,
   }) {
     return forecastingWeatherData(this);
   }
@@ -470,7 +446,6 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ForecastingMainData value)? forecastingMainData,
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
-    TResult Function(ForecastingCityData value)? forecastingCityData,
   }) {
     return forecastingWeatherData?.call(this);
   }
@@ -480,7 +455,6 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ForecastingMainData value)? forecastingMainData,
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
-    TResult Function(ForecastingCityData value)? forecastingCityData,
     required TResult orElse(),
   }) {
     if (forecastingWeatherData != null) {
@@ -507,167 +481,5 @@ abstract class ForecastingWeatherData implements ForecastingWeather {
   String get icon;
   @JsonKey(ignore: true)
   $ForecastingWeatherDataCopyWith<ForecastingWeatherData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ForecastingCityDataCopyWith<$Res> {
-  factory $ForecastingCityDataCopyWith(
-          ForecastingCityData value, $Res Function(ForecastingCityData) then) =
-      _$ForecastingCityDataCopyWithImpl<$Res>;
-  $Res call({String name});
-}
-
-/// @nodoc
-class _$ForecastingCityDataCopyWithImpl<$Res>
-    extends _$ForecastingWeatherCopyWithImpl<$Res>
-    implements $ForecastingCityDataCopyWith<$Res> {
-  _$ForecastingCityDataCopyWithImpl(
-      ForecastingCityData _value, $Res Function(ForecastingCityData) _then)
-      : super(_value, (v) => _then(v as ForecastingCityData));
-
-  @override
-  ForecastingCityData get _value => super._value as ForecastingCityData;
-
-  @override
-  $Res call({
-    Object? name = freezed,
-  }) {
-    return _then(ForecastingCityData(
-      name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ForecastingCityData implements ForecastingCityData {
-  _$ForecastingCityData(this.name, {String? $type})
-      : $type = $type ?? 'forecastingCityData';
-
-  factory _$ForecastingCityData.fromJson(Map<String, dynamic> json) =>
-      _$$ForecastingCityDataFromJson(json);
-
-  @override
-  final String name;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'ForecastingWeather.forecastingCityData(name: $name)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ForecastingCityData &&
-            const DeepCollectionEquality().equals(other.name, name));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
-
-  @JsonKey(ignore: true)
-  @override
-  $ForecastingCityDataCopyWith<ForecastingCityData> get copyWith =>
-      _$ForecastingCityDataCopyWithImpl<ForecastingCityData>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(double temp, int pressure, int humidity)
-        forecastingMainData,
-    required TResult Function(String main, String description, String icon)
-        forecastingWeatherData,
-    required TResult Function(String name) forecastingCityData,
-  }) {
-    return forecastingCityData(name);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(double temp, int pressure, int humidity)?
-        forecastingMainData,
-    TResult Function(String main, String description, String icon)?
-        forecastingWeatherData,
-    TResult Function(String name)? forecastingCityData,
-  }) {
-    return forecastingCityData?.call(name);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(double temp, int pressure, int humidity)?
-        forecastingMainData,
-    TResult Function(String main, String description, String icon)?
-        forecastingWeatherData,
-    TResult Function(String name)? forecastingCityData,
-    required TResult orElse(),
-  }) {
-    if (forecastingCityData != null) {
-      return forecastingCityData(name);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ForecastingMainData value) forecastingMainData,
-    required TResult Function(ForecastingWeatherData value)
-        forecastingWeatherData,
-    required TResult Function(ForecastingCityData value) forecastingCityData,
-  }) {
-    return forecastingCityData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ForecastingMainData value)? forecastingMainData,
-    TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
-    TResult Function(ForecastingCityData value)? forecastingCityData,
-  }) {
-    return forecastingCityData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ForecastingMainData value)? forecastingMainData,
-    TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
-    TResult Function(ForecastingCityData value)? forecastingCityData,
-    required TResult orElse(),
-  }) {
-    if (forecastingCityData != null) {
-      return forecastingCityData(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ForecastingCityDataToJson(this);
-  }
-}
-
-abstract class ForecastingCityData implements ForecastingWeather {
-  factory ForecastingCityData(String name) = _$ForecastingCityData;
-
-  factory ForecastingCityData.fromJson(Map<String, dynamic> json) =
-      _$ForecastingCityData.fromJson;
-
-  String get name;
-  @JsonKey(ignore: true)
-  $ForecastingCityDataCopyWith<ForecastingCityData> get copyWith =>
       throw _privateConstructorUsedError;
 }

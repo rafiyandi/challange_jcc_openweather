@@ -41,17 +41,3 @@ Map<String, dynamic> _$$ForecastingWeatherDataToJson(
       'icon': instance.icon,
       'runtimeType': instance.$type,
     };
-
-_$ForecastingCityData _$$ForecastingCityDataFromJson(
-        Map<String, dynamic> json) =>
-    _$ForecastingCityData(
-      json['name'] as String,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$ForecastingCityDataToJson(
-        _$ForecastingCityData instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'runtimeType': instance.$type,
-    };

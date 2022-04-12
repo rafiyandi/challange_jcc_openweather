@@ -41,17 +41,3 @@ Map<String, dynamic> _$$ForecastingMainResponseToJson(
       'weather': instance.weather,
       'runtimeType': instance.$type,
     };
-
-_$ForecastingCityResponse _$$ForecastingCityResponseFromJson(
-        Map<String, dynamic> json) =>
-    _$ForecastingCityResponse(
-      ForecastingCityData.fromJson(json['city'] as Map<String, dynamic>),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$ForecastingCityResponseToJson(
-        _$ForecastingCityResponse instance) =>
-    <String, dynamic>{
-      'city': instance.city,
-      'runtimeType': instance.$type,
-    };

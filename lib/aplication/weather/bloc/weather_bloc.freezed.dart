@@ -18,12 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$WeatherEventTearOff {
   const _$WeatherEventTearOff();
 
-  GetMainData getMainData() {
-    return const GetMainData();
-  }
-
-  GetCityData getCityData() {
-    return const GetCityData();
+  GetMainData getMainData({required String cityName}) {
+    return GetMainData(
+      cityName: cityName,
+    );
   }
 }
 
@@ -32,43 +30,43 @@ const $WeatherEvent = _$WeatherEventTearOff();
 
 /// @nodoc
 mixin _$WeatherEvent {
+  String get cityName => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getMainData,
-    required TResult Function() getCityData,
+    required TResult Function(String cityName) getMainData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getMainData,
-    TResult Function()? getCityData,
+    TResult Function(String cityName)? getMainData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getMainData,
-    TResult Function()? getCityData,
+    TResult Function(String cityName)? getMainData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetMainData value) getMainData,
-    required TResult Function(GetCityData value) getCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetMainData value)? getMainData,
-    TResult Function(GetCityData value)? getCityData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetMainData value)? getMainData,
-    TResult Function(GetCityData value)? getCityData,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $WeatherEventCopyWith<WeatherEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -77,6 +75,7 @@ abstract class $WeatherEventCopyWith<$Res> {
   factory $WeatherEventCopyWith(
           WeatherEvent value, $Res Function(WeatherEvent) then) =
       _$WeatherEventCopyWithImpl<$Res>;
+  $Res call({String cityName});
 }
 
 /// @nodoc
@@ -86,13 +85,28 @@ class _$WeatherEventCopyWithImpl<$Res> implements $WeatherEventCopyWith<$Res> {
   final WeatherEvent _value;
   // ignore: unused_field
   final $Res Function(WeatherEvent) _then;
+
+  @override
+  $Res call({
+    Object? cityName = freezed,
+  }) {
+    return _then(_value.copyWith(
+      cityName: cityName == freezed
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $GetMainDataCopyWith<$Res> {
+abstract class $GetMainDataCopyWith<$Res>
+    implements $WeatherEventCopyWith<$Res> {
   factory $GetMainDataCopyWith(
           GetMainData value, $Res Function(GetMainData) then) =
       _$GetMainDataCopyWithImpl<$Res>;
+  @override
+  $Res call({String cityName});
 }
 
 /// @nodoc
@@ -104,54 +118,74 @@ class _$GetMainDataCopyWithImpl<$Res> extends _$WeatherEventCopyWithImpl<$Res>
 
   @override
   GetMainData get _value => super._value as GetMainData;
+
+  @override
+  $Res call({
+    Object? cityName = freezed,
+  }) {
+    return _then(GetMainData(
+      cityName: cityName == freezed
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GetMainData implements GetMainData {
-  const _$GetMainData();
+  _$GetMainData({required this.cityName});
+
+  @override
+  final String cityName;
 
   @override
   String toString() {
-    return 'WeatherEvent.getMainData()';
+    return 'WeatherEvent.getMainData(cityName: $cityName)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is GetMainData);
+        (other.runtimeType == runtimeType &&
+            other is GetMainData &&
+            const DeepCollectionEquality().equals(other.cityName, cityName));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(cityName));
+
+  @JsonKey(ignore: true)
+  @override
+  $GetMainDataCopyWith<GetMainData> get copyWith =>
+      _$GetMainDataCopyWithImpl<GetMainData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getMainData,
-    required TResult Function() getCityData,
+    required TResult Function(String cityName) getMainData,
   }) {
-    return getMainData();
+    return getMainData(cityName);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getMainData,
-    TResult Function()? getCityData,
+    TResult Function(String cityName)? getMainData,
   }) {
-    return getMainData?.call();
+    return getMainData?.call(cityName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getMainData,
-    TResult Function()? getCityData,
+    TResult Function(String cityName)? getMainData,
     required TResult orElse(),
   }) {
     if (getMainData != null) {
-      return getMainData();
+      return getMainData(cityName);
     }
     return orElse();
   }
@@ -160,7 +194,6 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetMainData value) getMainData,
-    required TResult Function(GetCityData value) getCityData,
   }) {
     return getMainData(this);
   }
@@ -169,7 +202,6 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetMainData value)? getMainData,
-    TResult Function(GetCityData value)? getCityData,
   }) {
     return getMainData?.call(this);
   }
@@ -178,7 +210,6 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetMainData value)? getMainData,
-    TResult Function(GetCityData value)? getCityData,
     required TResult orElse(),
   }) {
     if (getMainData != null) {
@@ -189,111 +220,14 @@ class _$GetMainData implements GetMainData {
 }
 
 abstract class GetMainData implements WeatherEvent {
-  const factory GetMainData() = _$GetMainData;
-}
-
-/// @nodoc
-abstract class $GetCityDataCopyWith<$Res> {
-  factory $GetCityDataCopyWith(
-          GetCityData value, $Res Function(GetCityData) then) =
-      _$GetCityDataCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$GetCityDataCopyWithImpl<$Res> extends _$WeatherEventCopyWithImpl<$Res>
-    implements $GetCityDataCopyWith<$Res> {
-  _$GetCityDataCopyWithImpl(
-      GetCityData _value, $Res Function(GetCityData) _then)
-      : super(_value, (v) => _then(v as GetCityData));
+  factory GetMainData({required String cityName}) = _$GetMainData;
 
   @override
-  GetCityData get _value => super._value as GetCityData;
-}
-
-/// @nodoc
-
-class _$GetCityData implements GetCityData {
-  const _$GetCityData();
-
+  String get cityName;
   @override
-  String toString() {
-    return 'WeatherEvent.getCityData()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is GetCityData);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getMainData,
-    required TResult Function() getCityData,
-  }) {
-    return getCityData();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getMainData,
-    TResult Function()? getCityData,
-  }) {
-    return getCityData?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getMainData,
-    TResult Function()? getCityData,
-    required TResult orElse(),
-  }) {
-    if (getCityData != null) {
-      return getCityData();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetMainData value) getMainData,
-    required TResult Function(GetCityData value) getCityData,
-  }) {
-    return getCityData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GetMainData value)? getMainData,
-    TResult Function(GetCityData value)? getCityData,
-  }) {
-    return getCityData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetMainData value)? getMainData,
-    TResult Function(GetCityData value)? getCityData,
-    required TResult orElse(),
-  }) {
-    if (getCityData != null) {
-      return getCityData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetCityData implements WeatherEvent {
-  const factory GetCityData() = _$GetCityData;
+  @JsonKey(ignore: true)
+  $GetMainDataCopyWith<GetMainData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

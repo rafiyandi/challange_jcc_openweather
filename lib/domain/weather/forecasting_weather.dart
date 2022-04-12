@@ -17,10 +17,6 @@ abstract class ForecastingWeather with _$ForecastingWeather {
     String icon,
   ) = ForecastingWeatherData;
 
-  factory ForecastingWeather.forecastingCityData(
-    String name,
-  ) = ForecastingCityData;
-
   factory ForecastingWeather.fromJson(Map<String, dynamic> json) =>
       _$ForecastingWeatherFromJson(json);
 }
