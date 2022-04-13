@@ -15,19 +15,26 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
   ForecastingWeatherInterface _forecastingWeatherInterface;
 
+  @override
   Stream<WeatherState> mapEventToState(
     WeatherEvent event,
   ) async* {
-    yield* event.map(
-      getMainData: (e) async* {
-        yield WeatherState.mainDataOptions(
-            onLoading: true, weatherData: none());
+    yield* event.map(getMainData: (e) async* {
+      yield WeatherState.mainDataOptions(onLoading: true, weatherData: none());
 
-        final _result = await _forecastingWeatherInterface
-            .getDataWeatherCityName(cityName: e.cityName);
-        yield WeatherState.mainDataOptions(
-            onLoading: false, weatherData: some(_result));
-      },
-    );
+      final _result = await _forecastingWeatherInterface.getDataWeatherCityName(
+          cityName: e.cityName);
+      yield WeatherState.mainDataOptions(
+          onLoading: false, weatherData: some(_result));
+    }, getOneDayCity: (e) async* {
+      yield WeatherState.mainCurrentDataOptions(
+          onLoading: true, curOneDayData: none());
+
+      final _result = await _forecastingWeatherInterface
+          .getDataWeatherCurrentOneDay(cityName: e.cityName);
+
+      yield WeatherState.mainCurrentDataOptions(
+          onLoading: false, curOneDayData: some(_result));
+    });
   }
 }

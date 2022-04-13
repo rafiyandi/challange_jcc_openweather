@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:forecasting/shared/theme.dart';
 
-class PropertyMainPage extends StatelessWidget {
-  const PropertyMainPage({
-    Key? key,
-  }) : super(key: key);
+class PressureOneDay extends StatelessWidget {
+  const PressureOneDay({Key? key, required this.icon, required this.pressure})
+      : super(key: key);
+  final int pressure;
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Image.asset(
-          "assets/icon_sun_cloud.png",
+          "http://openweathermap.org/img/wn/$icon@2x.png",
           width: 40,
         ),
         Text(
-          "58 %",
+          "${pressure} hpa",
           style: secondaryTextStyle,
         ),
         Text(
-          "Huminity",
+          "Pressure",
           style: secondaryTextStyle,
         )
       ],
     );
-    ;
   }
 }

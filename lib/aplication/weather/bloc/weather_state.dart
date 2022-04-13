@@ -8,6 +8,11 @@ class WeatherState with _$WeatherState {
     required Option<Either<String, ForecastingListResponse>> weatherData,
   }) = _MainDataOptions;
 
+  const factory WeatherState.mainCurrentDataOptions({
+    required bool onLoading,
+    required Option<Either<String, CurrentOneDayResponse>> curOneDayData,
+  }) = _MainCurrentDataOptions;
+
   // const factory WeatherState.initial() = _Initial;
 
 }

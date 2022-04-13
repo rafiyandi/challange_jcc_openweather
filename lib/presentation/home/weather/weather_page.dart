@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:forecasting/aplication/weather/bloc/weather_bloc.dart';
 import 'package:forecasting/domain/weather/forecasting_weather.dart';
-import 'package:forecasting/domain/weather/forecasting_weather_response.dart';
 import 'package:forecasting/injection.dart';
 import 'package:forecasting/presentation/widgets/content_page.dart';
-import 'package:forecasting/presentation/widgets/property_main_page.dart';
+import 'package:forecasting/presentation/widgets/oneday/humidity_one_day.dart';
+import 'package:forecasting/presentation/widgets/oneday/pressure_one_day.dart';
 import 'package:forecasting/shared/theme.dart';
 
 class Weatherpage extends StatefulWidget {
@@ -105,63 +105,141 @@ class _WeatherpageState extends State<Weatherpage> {
       );
     }
 
-    Widget mainContent() {
+    // Widget mainContent() {
+    //   return Container(
+    //     margin: EdgeInsets.only(top: 30),
+    //     padding: EdgeInsets.all(20),
+    //     width: double.infinity,
+    //     decoration: BoxDecoration(
+    //         color: Colors.black.withOpacity(0.3),
+    //         borderRadius: BorderRadius.circular(12)),
+    //     child: BlocProvider(
+    //       create: (context) => getIt<WeatherBloc>()
+    //         ..add(WeatherEvent.getMainData(
+    //           cityName: widget.cityName,
+    //         )),
+    //       child: BlocBuilder<WeatherBloc, WeatherState>(
+    //         builder: (context, state) {
+    //           return Container(
+    //             child: state.maybeMap(
+    //                 orElse: (() => Text("Error")),
+    //                 mainDataOptions: (e) {
+    //                   if (e.onLoading) {
+    //                     return Center(
+    //                       child: Container(
+    //                         height: 30,
+    //                         width: 30,
+    //                         child: CircularProgressIndicator(),
+    //                       ),
+    //                     );
+    //                   } else {
+    //                     return e.weatherData.fold(
+    //                         () => Text("Dalam Sedang Dipersiapkan"),
+    //                         (a) => a.fold(
+    //                               (l) => Text("Error"),
+    //                               (r) => GridView.builder(
+    //                                 shrinkWrap: true,
+    //                                 gridDelegate:
+    //                                     SliverGridDelegateWithFixedCrossAxisCount(
+    //                                   crossAxisCount: 3,
+    //                                 ),
+    //                                 itemCount: 3,
+    //                                 itemBuilder: (context, index) {
+    //                                   return Row(
+    //                                     mainAxisAlignment:
+    //                                         MainAxisAlignment.start,
+    //                                     children: [
+    //                                       PropertyMainPage(
+    //                                         humidity:
+    //                                             r.list[index].main.humidity,
+    //                                       )
+    //                                     ],
+    //                                   );
+    //                                 },
+    //                               ),
+    //                             ));
+    //                   }
+    //                 }),
+    //           );
+    //         },
+    //       ),
+    //     ),
+    //   );
+    // }
+
+    Widget mainContentCurrDay() {
       return Container(
-          child: BlocProvider(
-              create: (context) => getIt<WeatherBloc>()
-                ..add(WeatherEvent.getMainData(cityName: widget.cityName)),
-              child: BlocBuilder<WeatherBloc, WeatherState>(
-                  builder: (context, state) {
-                return Container(
-                  child: state.maybeMap(
-                      orElse: (() => Text("Error")),
-                      mainDataOptions: (e) {
-                        if (e.onLoading) {
-                          return CircularProgressIndicator();
-                        } else {
-                          return e.weatherData.fold(
+        margin: EdgeInsets.only(top: 30),
+        padding: EdgeInsets.all(20),
+        width: double.infinity,
+        decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.3),
+            borderRadius: BorderRadius.circular(12)),
+        child: BlocProvider(
+          create: (context) => getIt<WeatherBloc>()
+            ..add(WeatherEvent.getOneDayCity(
+              cityName: widget.cityName,
+            )),
+          child: BlocBuilder<WeatherBloc, WeatherState>(
+            builder: (context, state) {
+              return Container(
+                child: state.maybeMap(
+                    orElse: (() => Text("Error")),
+                    mainCurrentDataOptions: (e) {
+                      if (e.onLoading) {
+                        return Center(
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      } else {
+                        return e.curOneDayData.fold(
                             () => Text("Dalam Sedang Dipersiapkan"),
                             (a) => a.fold(
-                              (l) => Text("Error"),
-                              (r) =>
-                                  // GridView.builder(
-                                  //   shrinkWrap: true,
-                                  //   gridDelegate:
-                                  //       SliverGridDelegateWithFixedCrossAxisCount(
-                                  //           crossAxisCount: 3),
-                                  //   itemCount: r.list.length,
-                                  //   itemBuilder: (context, index) {
-                                  Container(
-                                margin: EdgeInsets.only(top: 30),
-                                padding: EdgeInsets.all(20),
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                    color: Colors.black.withOpacity(0.3),
-                                    borderRadius: BorderRadius.circular(12)),
-                                child: Row(
-                                  children: [PropertyMainPage()],
-                                ),
-                              ),
-                              // },
-                            ),
-                          );
-                          // );
-                        }
-                      }),
-                );
-              }
-                  // child: GridView.builder(
-
-                  //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3), itemBuilder: (context, index){
-                  //     return
-                  //   })
-                  )));
+                                  (l) => Text("Error"),
+                                  (r) => GridView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 3,
+                                    ),
+                                    itemCount: 2,
+                                    itemBuilder: (context, index) {
+                                      return Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          HuminityOneDay(
+                                            humidity: r.main.humidity,
+                                            icon: r.weather[index].icon,
+                                          ),
+                                          PressureOneDay(
+                                              icon: r.weather[index].icon,
+                                              pressure: r.main.pressure),
+                                          HuminityOneDay(
+                                              icon: r.weather[index].icon,
+                                              humidity: r.main.humidity),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ));
+                      }
+                    }),
+              );
+            },
+          ),
+        ),
+      );
     }
 
     Widget content() {
       return Container(
-        margin: EdgeInsets.symmetric(vertical: 20),
-        padding: EdgeInsets.all(20),
+        margin: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.all(20),
         width: double.infinity,
         decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.3),
@@ -184,14 +262,14 @@ class _WeatherpageState extends State<Weatherpage> {
             children: [
               header(),
               tempHeader(),
-              mainContent(),
+              // mainContent(),
+              mainContentCurrDay(),
               content(),
             ],
           )),
     );
   }
 }
-
 // ///////////////////////////////////
 // import 'package:flutter/material.dart';
 // import 'package:forecasting/aplication/weather/bloc/weather_bloc.dart';

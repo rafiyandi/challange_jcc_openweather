@@ -21,6 +21,8 @@ ForecastingWeatherResponse _$ForecastingWeatherResponseFromJson(
       return ForecastingListResponse.fromJson(json);
     case 'forecastingMainResponse':
       return ForecastingMainResponse.fromJson(json);
+    case 'currentOneDayResponse':
+      return CurrentOneDayResponse.fromJson(json);
 
     default:
       throw CheckedFromJsonException(
@@ -50,6 +52,14 @@ class _$ForecastingWeatherResponseTearOff {
     );
   }
 
+  CurrentOneDayResponse currentOneDayResponse(
+      List<WeatherOneDay> weather, MainOneDay main) {
+    return CurrentOneDayResponse(
+      weather,
+      main,
+    );
+  }
+
   ForecastingWeatherResponse fromJson(Map<String, Object?> json) {
     return ForecastingWeatherResponse.fromJson(json);
   }
@@ -67,6 +77,8 @@ mixin _$ForecastingWeatherResponse {
     required TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)
         forecastingMainResponse,
+    required TResult Function(List<WeatherOneDay> weather, MainOneDay main)
+        currentOneDayResponse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +88,8 @@ mixin _$ForecastingWeatherResponse {
     TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)?
         forecastingMainResponse,
+    TResult Function(List<WeatherOneDay> weather, MainOneDay main)?
+        currentOneDayResponse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,6 +99,8 @@ mixin _$ForecastingWeatherResponse {
     TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)?
         forecastingMainResponse,
+    TResult Function(List<WeatherOneDay> weather, MainOneDay main)?
+        currentOneDayResponse,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -94,18 +110,22 @@ mixin _$ForecastingWeatherResponse {
         forecastingListResponse,
     required TResult Function(ForecastingMainResponse value)
         forecastingMainResponse,
+    required TResult Function(CurrentOneDayResponse value)
+        currentOneDayResponse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ForecastingListResponse value)? forecastingListResponse,
     TResult Function(ForecastingMainResponse value)? forecastingMainResponse,
+    TResult Function(CurrentOneDayResponse value)? currentOneDayResponse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ForecastingListResponse value)? forecastingListResponse,
     TResult Function(ForecastingMainResponse value)? forecastingMainResponse,
+    TResult Function(CurrentOneDayResponse value)? currentOneDayResponse,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -207,6 +227,8 @@ class _$ForecastingListResponse implements ForecastingListResponse {
     required TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)
         forecastingMainResponse,
+    required TResult Function(List<WeatherOneDay> weather, MainOneDay main)
+        currentOneDayResponse,
   }) {
     return forecastingListResponse(list);
   }
@@ -219,6 +241,8 @@ class _$ForecastingListResponse implements ForecastingListResponse {
     TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)?
         forecastingMainResponse,
+    TResult Function(List<WeatherOneDay> weather, MainOneDay main)?
+        currentOneDayResponse,
   }) {
     return forecastingListResponse?.call(list);
   }
@@ -231,6 +255,8 @@ class _$ForecastingListResponse implements ForecastingListResponse {
     TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)?
         forecastingMainResponse,
+    TResult Function(List<WeatherOneDay> weather, MainOneDay main)?
+        currentOneDayResponse,
     required TResult orElse(),
   }) {
     if (forecastingListResponse != null) {
@@ -246,6 +272,8 @@ class _$ForecastingListResponse implements ForecastingListResponse {
         forecastingListResponse,
     required TResult Function(ForecastingMainResponse value)
         forecastingMainResponse,
+    required TResult Function(CurrentOneDayResponse value)
+        currentOneDayResponse,
   }) {
     return forecastingListResponse(this);
   }
@@ -255,6 +283,7 @@ class _$ForecastingListResponse implements ForecastingListResponse {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ForecastingListResponse value)? forecastingListResponse,
     TResult Function(ForecastingMainResponse value)? forecastingMainResponse,
+    TResult Function(CurrentOneDayResponse value)? currentOneDayResponse,
   }) {
     return forecastingListResponse?.call(this);
   }
@@ -264,6 +293,7 @@ class _$ForecastingListResponse implements ForecastingListResponse {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ForecastingListResponse value)? forecastingListResponse,
     TResult Function(ForecastingMainResponse value)? forecastingMainResponse,
+    TResult Function(CurrentOneDayResponse value)? currentOneDayResponse,
     required TResult orElse(),
   }) {
     if (forecastingListResponse != null) {
@@ -379,6 +409,8 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
     required TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)
         forecastingMainResponse,
+    required TResult Function(List<WeatherOneDay> weather, MainOneDay main)
+        currentOneDayResponse,
   }) {
     return forecastingMainResponse(main, weather);
   }
@@ -391,6 +423,8 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
     TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)?
         forecastingMainResponse,
+    TResult Function(List<WeatherOneDay> weather, MainOneDay main)?
+        currentOneDayResponse,
   }) {
     return forecastingMainResponse?.call(main, weather);
   }
@@ -403,6 +437,8 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
     TResult Function(
             ForecastingMainData main, List<ForecastingWeatherData> weather)?
         forecastingMainResponse,
+    TResult Function(List<WeatherOneDay> weather, MainOneDay main)?
+        currentOneDayResponse,
     required TResult orElse(),
   }) {
     if (forecastingMainResponse != null) {
@@ -418,6 +454,8 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
         forecastingListResponse,
     required TResult Function(ForecastingMainResponse value)
         forecastingMainResponse,
+    required TResult Function(CurrentOneDayResponse value)
+        currentOneDayResponse,
   }) {
     return forecastingMainResponse(this);
   }
@@ -427,6 +465,7 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ForecastingListResponse value)? forecastingListResponse,
     TResult Function(ForecastingMainResponse value)? forecastingMainResponse,
+    TResult Function(CurrentOneDayResponse value)? currentOneDayResponse,
   }) {
     return forecastingMainResponse?.call(this);
   }
@@ -436,6 +475,7 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ForecastingListResponse value)? forecastingListResponse,
     TResult Function(ForecastingMainResponse value)? forecastingMainResponse,
+    TResult Function(CurrentOneDayResponse value)? currentOneDayResponse,
     required TResult orElse(),
   }) {
     if (forecastingMainResponse != null) {
@@ -462,5 +502,188 @@ abstract class ForecastingMainResponse implements ForecastingWeatherResponse {
   List<ForecastingWeatherData> get weather;
   @JsonKey(ignore: true)
   $ForecastingMainResponseCopyWith<ForecastingMainResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CurrentOneDayResponseCopyWith<$Res> {
+  factory $CurrentOneDayResponseCopyWith(CurrentOneDayResponse value,
+          $Res Function(CurrentOneDayResponse) then) =
+      _$CurrentOneDayResponseCopyWithImpl<$Res>;
+  $Res call({List<WeatherOneDay> weather, MainOneDay main});
+}
+
+/// @nodoc
+class _$CurrentOneDayResponseCopyWithImpl<$Res>
+    extends _$ForecastingWeatherResponseCopyWithImpl<$Res>
+    implements $CurrentOneDayResponseCopyWith<$Res> {
+  _$CurrentOneDayResponseCopyWithImpl(
+      CurrentOneDayResponse _value, $Res Function(CurrentOneDayResponse) _then)
+      : super(_value, (v) => _then(v as CurrentOneDayResponse));
+
+  @override
+  CurrentOneDayResponse get _value => super._value as CurrentOneDayResponse;
+
+  @override
+  $Res call({
+    Object? weather = freezed,
+    Object? main = freezed,
+  }) {
+    return _then(CurrentOneDayResponse(
+      weather == freezed
+          ? _value.weather
+          : weather // ignore: cast_nullable_to_non_nullable
+              as List<WeatherOneDay>,
+      main == freezed
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as MainOneDay,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CurrentOneDayResponse implements CurrentOneDayResponse {
+  _$CurrentOneDayResponse(this.weather, this.main, {String? $type})
+      : $type = $type ?? 'currentOneDayResponse';
+
+  factory _$CurrentOneDayResponse.fromJson(Map<String, dynamic> json) =>
+      _$$CurrentOneDayResponseFromJson(json);
+
+  @override
+  final List<WeatherOneDay> weather;
+  @override
+  final MainOneDay main;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'ForecastingWeatherResponse.currentOneDayResponse(weather: $weather, main: $main)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CurrentOneDayResponse &&
+            const DeepCollectionEquality().equals(other.weather, weather) &&
+            const DeepCollectionEquality().equals(other.main, main));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(weather),
+      const DeepCollectionEquality().hash(main));
+
+  @JsonKey(ignore: true)
+  @override
+  $CurrentOneDayResponseCopyWith<CurrentOneDayResponse> get copyWith =>
+      _$CurrentOneDayResponseCopyWithImpl<CurrentOneDayResponse>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<ForecastingMainResponse> list)
+        forecastingListResponse,
+    required TResult Function(
+            ForecastingMainData main, List<ForecastingWeatherData> weather)
+        forecastingMainResponse,
+    required TResult Function(List<WeatherOneDay> weather, MainOneDay main)
+        currentOneDayResponse,
+  }) {
+    return currentOneDayResponse(weather, main);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<ForecastingMainResponse> list)?
+        forecastingListResponse,
+    TResult Function(
+            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+        forecastingMainResponse,
+    TResult Function(List<WeatherOneDay> weather, MainOneDay main)?
+        currentOneDayResponse,
+  }) {
+    return currentOneDayResponse?.call(weather, main);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<ForecastingMainResponse> list)?
+        forecastingListResponse,
+    TResult Function(
+            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+        forecastingMainResponse,
+    TResult Function(List<WeatherOneDay> weather, MainOneDay main)?
+        currentOneDayResponse,
+    required TResult orElse(),
+  }) {
+    if (currentOneDayResponse != null) {
+      return currentOneDayResponse(weather, main);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ForecastingListResponse value)
+        forecastingListResponse,
+    required TResult Function(ForecastingMainResponse value)
+        forecastingMainResponse,
+    required TResult Function(CurrentOneDayResponse value)
+        currentOneDayResponse,
+  }) {
+    return currentOneDayResponse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ForecastingListResponse value)? forecastingListResponse,
+    TResult Function(ForecastingMainResponse value)? forecastingMainResponse,
+    TResult Function(CurrentOneDayResponse value)? currentOneDayResponse,
+  }) {
+    return currentOneDayResponse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ForecastingListResponse value)? forecastingListResponse,
+    TResult Function(ForecastingMainResponse value)? forecastingMainResponse,
+    TResult Function(CurrentOneDayResponse value)? currentOneDayResponse,
+    required TResult orElse(),
+  }) {
+    if (currentOneDayResponse != null) {
+      return currentOneDayResponse(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CurrentOneDayResponseToJson(this);
+  }
+}
+
+abstract class CurrentOneDayResponse implements ForecastingWeatherResponse {
+  factory CurrentOneDayResponse(List<WeatherOneDay> weather, MainOneDay main) =
+      _$CurrentOneDayResponse;
+
+  factory CurrentOneDayResponse.fromJson(Map<String, dynamic> json) =
+      _$CurrentOneDayResponse.fromJson;
+
+  List<WeatherOneDay> get weather;
+  MainOneDay get main;
+  @JsonKey(ignore: true)
+  $CurrentOneDayResponseCopyWith<CurrentOneDayResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

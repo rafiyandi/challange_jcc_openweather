@@ -41,3 +41,21 @@ Map<String, dynamic> _$$ForecastingMainResponseToJson(
       'weather': instance.weather,
       'runtimeType': instance.$type,
     };
+
+_$CurrentOneDayResponse _$$CurrentOneDayResponseFromJson(
+        Map<String, dynamic> json) =>
+    _$CurrentOneDayResponse(
+      (json['weather'] as List<dynamic>)
+          .map((e) => WeatherOneDay.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      MainOneDay.fromJson(json['main'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$CurrentOneDayResponseToJson(
+        _$CurrentOneDayResponse instance) =>
+    <String, dynamic>{
+      'weather': instance.weather,
+      'main': instance.main,
+      'runtimeType': instance.$type,
+    };

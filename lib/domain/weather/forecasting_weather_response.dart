@@ -15,6 +15,11 @@ abstract class ForecastingWeatherResponse with _$ForecastingWeatherResponse {
     List<ForecastingWeatherData> weather,
   ) = ForecastingMainResponse;
 
+  factory ForecastingWeatherResponse.currentOneDayResponse(
+    List<WeatherOneDay> weather,
+    MainOneDay main,
+  ) = CurrentOneDayResponse;
+
   factory ForecastingWeatherResponse.fromJson(Map<String, dynamic> json) =>
       _$ForecastingWeatherResponseFromJson(json);
 }

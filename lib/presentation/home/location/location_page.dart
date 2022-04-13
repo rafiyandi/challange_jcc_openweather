@@ -220,12 +220,20 @@ class _LocationPageState extends State<LocationPage> {
                                       WeatherEvent.getMainData(
                                           cityName:
                                               _selectedcity!.cityName ?? ''));
+
+                                  //OneDay
+
+                                  context.read<WeatherBloc>().add(
+                                      WeatherEvent.getOneDayCity(
+                                          cityName:
+                                              _selectedcity!.cityName ?? ""));
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => Weatherpage(
-                                              cityName:
-                                                  _selectedcity!.cityName ?? "",
+                                              cityName: _selectedcity!
+                                                      .cityName ??
+                                                  "Data Nya tidak dapat Diakses",
                                               userName: nameController.text)));
                                 } else {
                                   FlushbarHelper.createError(
@@ -248,40 +256,40 @@ class _LocationPageState extends State<LocationPage> {
     );
   }
 
-  Container noneDataGetProvinceWidget() {
-    return Container(
-      child: Text("Data nya none"),
-    );
-  }
+  // Container noneDataGetProvinceWidget() {
+  //   return Container(
+  //     child: Text("Data nya none"),
+  //   );
+  // }
 
-  Expanded successGetProvinceWidget(ProvinceResponse r) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: r.results.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(r.results[index].province ?? "tidak ada"),
-          );
-        },
-      ),
-    );
-  }
+  // Expanded successGetProvinceWidget(ProvinceResponse r) {
+  //   return Expanded(
+  //     child: ListView.builder(
+  //       itemCount: r.results.length,
+  //       itemBuilder: (context, index) {
+  //         return ListTile(
+  //           title: Text(r.results[index].province ?? "tidak ada"),
+  //         );
+  //       },
+  //     ),
+  //   );
+  // }
 
-  Container locationLoadingWidget() {
-    return Container(
-      child: Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
-  }
+  // Container locationLoadingWidget() {
+  //   return Container(
+  //     child: Center(
+  //       child: CircularProgressIndicator(),
+  //     ),
+  //   );
+  // }
 
-  Expanded errorGetProvinceWidget(String msg) {
-    return Expanded(
-      child: Container(
-        child: Text(msg),
-      ),
-    );
-  }
+  // Expanded errorGetProvinceWidget(String msg) {
+  //   return Expanded(
+  //     child: Container(
+  //       child: Text(msg),
+  //     ),
+  //   );
+  // }
 }
 
 // return Container(

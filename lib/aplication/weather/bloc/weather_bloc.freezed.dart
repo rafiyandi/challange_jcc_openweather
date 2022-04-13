@@ -23,6 +23,12 @@ class _$WeatherEventTearOff {
       cityName: cityName,
     );
   }
+
+  GetOneDayCity getOneDayCity({required String cityName}) {
+    return GetOneDayCity(
+      cityName: cityName,
+    );
+  }
 }
 
 /// @nodoc
@@ -35,32 +41,38 @@ mixin _$WeatherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String cityName) getMainData,
+    required TResult Function(String cityName) getOneDayCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String cityName)? getMainData,
+    TResult Function(String cityName)? getOneDayCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String cityName)? getMainData,
+    TResult Function(String cityName)? getOneDayCity,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetMainData value) getMainData,
+    required TResult Function(GetOneDayCity value) getOneDayCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetMainData value)? getMainData,
+    TResult Function(GetOneDayCity value)? getOneDayCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetMainData value)? getMainData,
+    TResult Function(GetOneDayCity value)? getOneDayCity,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -166,6 +178,7 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String cityName) getMainData,
+    required TResult Function(String cityName) getOneDayCity,
   }) {
     return getMainData(cityName);
   }
@@ -174,6 +187,7 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String cityName)? getMainData,
+    TResult Function(String cityName)? getOneDayCity,
   }) {
     return getMainData?.call(cityName);
   }
@@ -182,6 +196,7 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String cityName)? getMainData,
+    TResult Function(String cityName)? getOneDayCity,
     required TResult orElse(),
   }) {
     if (getMainData != null) {
@@ -194,6 +209,7 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetMainData value) getMainData,
+    required TResult Function(GetOneDayCity value) getOneDayCity,
   }) {
     return getMainData(this);
   }
@@ -202,6 +218,7 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetMainData value)? getMainData,
+    TResult Function(GetOneDayCity value)? getOneDayCity,
   }) {
     return getMainData?.call(this);
   }
@@ -210,6 +227,7 @@ class _$GetMainData implements GetMainData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetMainData value)? getMainData,
+    TResult Function(GetOneDayCity value)? getOneDayCity,
     required TResult orElse(),
   }) {
     if (getMainData != null) {
@@ -231,6 +249,143 @@ abstract class GetMainData implements WeatherEvent {
 }
 
 /// @nodoc
+abstract class $GetOneDayCityCopyWith<$Res>
+    implements $WeatherEventCopyWith<$Res> {
+  factory $GetOneDayCityCopyWith(
+          GetOneDayCity value, $Res Function(GetOneDayCity) then) =
+      _$GetOneDayCityCopyWithImpl<$Res>;
+  @override
+  $Res call({String cityName});
+}
+
+/// @nodoc
+class _$GetOneDayCityCopyWithImpl<$Res> extends _$WeatherEventCopyWithImpl<$Res>
+    implements $GetOneDayCityCopyWith<$Res> {
+  _$GetOneDayCityCopyWithImpl(
+      GetOneDayCity _value, $Res Function(GetOneDayCity) _then)
+      : super(_value, (v) => _then(v as GetOneDayCity));
+
+  @override
+  GetOneDayCity get _value => super._value as GetOneDayCity;
+
+  @override
+  $Res call({
+    Object? cityName = freezed,
+  }) {
+    return _then(GetOneDayCity(
+      cityName: cityName == freezed
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetOneDayCity implements GetOneDayCity {
+  _$GetOneDayCity({required this.cityName});
+
+  @override
+  final String cityName;
+
+  @override
+  String toString() {
+    return 'WeatherEvent.getOneDayCity(cityName: $cityName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetOneDayCity &&
+            const DeepCollectionEquality().equals(other.cityName, cityName));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(cityName));
+
+  @JsonKey(ignore: true)
+  @override
+  $GetOneDayCityCopyWith<GetOneDayCity> get copyWith =>
+      _$GetOneDayCityCopyWithImpl<GetOneDayCity>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String cityName) getMainData,
+    required TResult Function(String cityName) getOneDayCity,
+  }) {
+    return getOneDayCity(cityName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String cityName)? getMainData,
+    TResult Function(String cityName)? getOneDayCity,
+  }) {
+    return getOneDayCity?.call(cityName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String cityName)? getMainData,
+    TResult Function(String cityName)? getOneDayCity,
+    required TResult orElse(),
+  }) {
+    if (getOneDayCity != null) {
+      return getOneDayCity(cityName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetMainData value) getMainData,
+    required TResult Function(GetOneDayCity value) getOneDayCity,
+  }) {
+    return getOneDayCity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetMainData value)? getMainData,
+    TResult Function(GetOneDayCity value)? getOneDayCity,
+  }) {
+    return getOneDayCity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetMainData value)? getMainData,
+    TResult Function(GetOneDayCity value)? getOneDayCity,
+    required TResult orElse(),
+  }) {
+    if (getOneDayCity != null) {
+      return getOneDayCity(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetOneDayCity implements WeatherEvent {
+  factory GetOneDayCity({required String cityName}) = _$GetOneDayCity;
+
+  @override
+  String get cityName;
+  @override
+  @JsonKey(ignore: true)
+  $GetOneDayCityCopyWith<GetOneDayCity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$WeatherStateTearOff {
   const _$WeatherStateTearOff();
 
@@ -246,6 +401,15 @@ class _$WeatherStateTearOff {
       weatherData: weatherData,
     );
   }
+
+  _MainCurrentDataOptions mainCurrentDataOptions(
+      {required bool onLoading,
+      required Option<Either<String, CurrentOneDayResponse>> curOneDayData}) {
+    return _MainCurrentDataOptions(
+      onLoading: onLoading,
+      curOneDayData: curOneDayData,
+    );
+  }
 }
 
 /// @nodoc
@@ -259,6 +423,9 @@ mixin _$WeatherState {
     required TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)
         mainDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)
+        mainCurrentDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -267,6 +434,9 @@ mixin _$WeatherState {
     TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)?
+        mainCurrentDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -275,6 +445,9 @@ mixin _$WeatherState {
     TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)?
+        mainCurrentDataOptions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -282,18 +455,22 @@ mixin _$WeatherState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_MainDataOptions value) mainDataOptions,
+    required TResult Function(_MainCurrentDataOptions value)
+        mainCurrentDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_MainDataOptions value)? mainDataOptions,
+    TResult Function(_MainCurrentDataOptions value)? mainCurrentDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_MainDataOptions value)? mainDataOptions,
+    TResult Function(_MainCurrentDataOptions value)? mainCurrentDataOptions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -357,6 +534,9 @@ class _$_Initial implements _Initial {
     required TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)
         mainDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)
+        mainCurrentDataOptions,
   }) {
     return initial();
   }
@@ -368,6 +548,9 @@ class _$_Initial implements _Initial {
     TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)?
+        mainCurrentDataOptions,
   }) {
     return initial?.call();
   }
@@ -379,6 +562,9 @@ class _$_Initial implements _Initial {
     TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)?
+        mainCurrentDataOptions,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -392,6 +578,8 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_MainDataOptions value) mainDataOptions,
+    required TResult Function(_MainCurrentDataOptions value)
+        mainCurrentDataOptions,
   }) {
     return initial(this);
   }
@@ -401,6 +589,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_MainDataOptions value)? mainDataOptions,
+    TResult Function(_MainCurrentDataOptions value)? mainCurrentDataOptions,
   }) {
     return initial?.call(this);
   }
@@ -410,6 +599,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_MainDataOptions value)? mainDataOptions,
+    TResult Function(_MainCurrentDataOptions value)? mainCurrentDataOptions,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -506,6 +696,9 @@ class _$_MainDataOptions implements _MainDataOptions {
     required TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)
         mainDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)
+        mainCurrentDataOptions,
   }) {
     return mainDataOptions(onLoading, weatherData);
   }
@@ -517,6 +710,9 @@ class _$_MainDataOptions implements _MainDataOptions {
     TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)?
+        mainCurrentDataOptions,
   }) {
     return mainDataOptions?.call(onLoading, weatherData);
   }
@@ -528,6 +724,9 @@ class _$_MainDataOptions implements _MainDataOptions {
     TResult Function(bool onLoading,
             Option<Either<String, ForecastingListResponse>> weatherData)?
         mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)?
+        mainCurrentDataOptions,
     required TResult orElse(),
   }) {
     if (mainDataOptions != null) {
@@ -541,6 +740,8 @@ class _$_MainDataOptions implements _MainDataOptions {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_MainDataOptions value) mainDataOptions,
+    required TResult Function(_MainCurrentDataOptions value)
+        mainCurrentDataOptions,
   }) {
     return mainDataOptions(this);
   }
@@ -550,6 +751,7 @@ class _$_MainDataOptions implements _MainDataOptions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_MainDataOptions value)? mainDataOptions,
+    TResult Function(_MainCurrentDataOptions value)? mainCurrentDataOptions,
   }) {
     return mainDataOptions?.call(this);
   }
@@ -559,6 +761,7 @@ class _$_MainDataOptions implements _MainDataOptions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_MainDataOptions value)? mainDataOptions,
+    TResult Function(_MainCurrentDataOptions value)? mainCurrentDataOptions,
     required TResult orElse(),
   }) {
     if (mainDataOptions != null) {
@@ -578,5 +781,177 @@ abstract class _MainDataOptions implements WeatherState {
   Option<Either<String, ForecastingListResponse>> get weatherData;
   @JsonKey(ignore: true)
   _$MainDataOptionsCopyWith<_MainDataOptions> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$MainCurrentDataOptionsCopyWith<$Res> {
+  factory _$MainCurrentDataOptionsCopyWith(_MainCurrentDataOptions value,
+          $Res Function(_MainCurrentDataOptions) then) =
+      __$MainCurrentDataOptionsCopyWithImpl<$Res>;
+  $Res call(
+      {bool onLoading,
+      Option<Either<String, CurrentOneDayResponse>> curOneDayData});
+}
+
+/// @nodoc
+class __$MainCurrentDataOptionsCopyWithImpl<$Res>
+    extends _$WeatherStateCopyWithImpl<$Res>
+    implements _$MainCurrentDataOptionsCopyWith<$Res> {
+  __$MainCurrentDataOptionsCopyWithImpl(_MainCurrentDataOptions _value,
+      $Res Function(_MainCurrentDataOptions) _then)
+      : super(_value, (v) => _then(v as _MainCurrentDataOptions));
+
+  @override
+  _MainCurrentDataOptions get _value => super._value as _MainCurrentDataOptions;
+
+  @override
+  $Res call({
+    Object? onLoading = freezed,
+    Object? curOneDayData = freezed,
+  }) {
+    return _then(_MainCurrentDataOptions(
+      onLoading: onLoading == freezed
+          ? _value.onLoading
+          : onLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      curOneDayData: curOneDayData == freezed
+          ? _value.curOneDayData
+          : curOneDayData // ignore: cast_nullable_to_non_nullable
+              as Option<Either<String, CurrentOneDayResponse>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_MainCurrentDataOptions implements _MainCurrentDataOptions {
+  const _$_MainCurrentDataOptions(
+      {required this.onLoading, required this.curOneDayData});
+
+  @override
+  final bool onLoading;
+  @override
+  final Option<Either<String, CurrentOneDayResponse>> curOneDayData;
+
+  @override
+  String toString() {
+    return 'WeatherState.mainCurrentDataOptions(onLoading: $onLoading, curOneDayData: $curOneDayData)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _MainCurrentDataOptions &&
+            const DeepCollectionEquality().equals(other.onLoading, onLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.curOneDayData, curOneDayData));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(onLoading),
+      const DeepCollectionEquality().hash(curOneDayData));
+
+  @JsonKey(ignore: true)
+  @override
+  _$MainCurrentDataOptionsCopyWith<_MainCurrentDataOptions> get copyWith =>
+      __$MainCurrentDataOptionsCopyWithImpl<_MainCurrentDataOptions>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool onLoading,
+            Option<Either<String, ForecastingListResponse>> weatherData)
+        mainDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)
+        mainCurrentDataOptions,
+  }) {
+    return mainCurrentDataOptions(onLoading, curOneDayData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool onLoading,
+            Option<Either<String, ForecastingListResponse>> weatherData)?
+        mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)?
+        mainCurrentDataOptions,
+  }) {
+    return mainCurrentDataOptions?.call(onLoading, curOneDayData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool onLoading,
+            Option<Either<String, ForecastingListResponse>> weatherData)?
+        mainDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<String, CurrentOneDayResponse>> curOneDayData)?
+        mainCurrentDataOptions,
+    required TResult orElse(),
+  }) {
+    if (mainCurrentDataOptions != null) {
+      return mainCurrentDataOptions(onLoading, curOneDayData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_MainDataOptions value) mainDataOptions,
+    required TResult Function(_MainCurrentDataOptions value)
+        mainCurrentDataOptions,
+  }) {
+    return mainCurrentDataOptions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_MainDataOptions value)? mainDataOptions,
+    TResult Function(_MainCurrentDataOptions value)? mainCurrentDataOptions,
+  }) {
+    return mainCurrentDataOptions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_MainDataOptions value)? mainDataOptions,
+    TResult Function(_MainCurrentDataOptions value)? mainCurrentDataOptions,
+    required TResult orElse(),
+  }) {
+    if (mainCurrentDataOptions != null) {
+      return mainCurrentDataOptions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MainCurrentDataOptions implements WeatherState {
+  const factory _MainCurrentDataOptions(
+      {required bool onLoading,
+      required Option<Either<String, CurrentOneDayResponse>>
+          curOneDayData}) = _$_MainCurrentDataOptions;
+
+  bool get onLoading;
+  Option<Either<String, CurrentOneDayResponse>> get curOneDayData;
+  @JsonKey(ignore: true)
+  _$MainCurrentDataOptionsCopyWith<_MainCurrentDataOptions> get copyWith =>
       throw _privateConstructorUsedError;
 }

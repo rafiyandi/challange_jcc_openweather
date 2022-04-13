@@ -17,6 +17,18 @@ abstract class ForecastingWeather with _$ForecastingWeather {
     String icon,
   ) = ForecastingWeatherData;
 
+  factory ForecastingWeather.weatherOneDay(
+    String main,
+    String description,
+    String icon,
+  ) = WeatherOneDay;
+
+  factory ForecastingWeather.mainOneDay(
+    double temp,
+    int pressure,
+    int humidity,
+  ) = MainOneDay;
+
   factory ForecastingWeather.fromJson(Map<String, dynamic> json) =>
       _$ForecastingWeatherFromJson(json);
 }
