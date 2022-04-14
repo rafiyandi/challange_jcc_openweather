@@ -31,6 +31,7 @@ _$ForecastingMainResponse _$$ForecastingMainResponseFromJson(
           .map(
               (e) => ForecastingWeatherData.fromJson(e as Map<String, dynamic>))
           .toList(),
+      json['dt_txt'] as String,
       $type: json['runtimeType'] as String?,
     );
 
@@ -39,6 +40,7 @@ Map<String, dynamic> _$$ForecastingMainResponseToJson(
     <String, dynamic>{
       'main': instance.main,
       'weather': instance.weather,
+      'dt_txt': instance.time,
       'runtimeType': instance.$type,
     };
 

@@ -32,13 +32,31 @@ class ForecastingWeatherRepository extends ForecastingWeatherInterface {
       final data = ForecastingListResponse.fromJson(_result);
 
       // print('$cityName');
-      // print(data);
+      print(data);
 
       return right(data);
     } catch (e) {
       print(e.toString());
       return left(e.toString());
     }
+  }
+
+  void setTime(String time) {
+    var date = DateTime.now();
+
+    var hour = DateFormat.H().format(date);
+    String setHour = hour.substring(1);
+    int subHour = int.parse(setHour);
+
+    if (subHour >= 4 && subHour <= 11) {
+      time = "Good Morning";
+    } else if (subHour >= 12 && subHour <= 18) {
+      time = "Good Afternoon";
+    } else if (subHour >= 19 && subHour <= 3) {
+      time = "Good Night";
+    }
+
+    print("Jam ni boss" + setHour);
   }
 
   //One Day Lho Rafi

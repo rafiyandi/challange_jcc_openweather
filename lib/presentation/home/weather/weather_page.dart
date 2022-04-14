@@ -12,6 +12,8 @@ import 'package:forecasting/presentation/widgets/oneday/speed_one_day.dart';
 import 'package:forecasting/shared/theme.dart';
 import 'package:intl/intl.dart';
 
+import '../../../infrastukstur/weather/forecasting_weather_repository.dart';
+
 class Weatherpage extends StatefulWidget {
   const Weatherpage({Key? key, required this.cityName, required this.userName})
       : super(key: key);
@@ -24,6 +26,28 @@ class Weatherpage extends StatefulWidget {
 }
 
 class _WeatherpageState extends State<Weatherpage> {
+  void setTime() {
+    var date = DateTime.now();
+
+    var hour = DateFormat.H().format(date);
+    String setHour = hour.substring(1);
+
+    if (setHour == "2") {
+      print("selamat pagi");
+    } else {
+      print("tidak bisa");
+    }
+
+    print("Jam ni boss" + setHour);
+  }
+
+  @override
+  void initState() {
+    setTime();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -215,7 +239,13 @@ class _WeatherpageState extends State<Weatherpage> {
           child: BlocProvider(
             create: (context) => getIt<WeatherBloc>()
               ..add(WeatherEvent.getOneDayCity(cityName: widget.cityName)),
-            child: BlocBuilder<WeatherBloc, WeatherState>(
+            child: BlocConsumer<WeatherBloc, WeatherState>(
+              listener: (context, state) {
+                // state.maybeMap(
+                //     orElse: () {},
+                //     mainCurrentDataOptions: (e) => e.curOneDayData.fold(
+                //         () => () {}, (a) => a.fold((l) => () {}, (r) => )));
+              },
               builder: (context, state) {
                 return Container(
                   child: state.maybeMap(

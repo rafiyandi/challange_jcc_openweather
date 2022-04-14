@@ -45,10 +45,13 @@ class _$ForecastingWeatherResponseTearOff {
   }
 
   ForecastingMainResponse forecastingMainResponse(
-      ForecastingMainData main, List<ForecastingWeatherData> weather) {
+      ForecastingMainData main,
+      List<ForecastingWeatherData> weather,
+      @JsonKey(name: 'dt_txt') String time) {
     return ForecastingMainResponse(
       main,
       weather,
+      time,
     );
   }
 
@@ -77,7 +80,9 @@ mixin _$ForecastingWeatherResponse {
     required TResult Function(List<ForecastingMainResponse> list)
         forecastingListResponse,
     required TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)
         forecastingMainResponse,
     required TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)
@@ -89,7 +94,9 @@ mixin _$ForecastingWeatherResponse {
     TResult Function(List<ForecastingMainResponse> list)?
         forecastingListResponse,
     TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)?
         forecastingMainResponse,
     TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)?
@@ -101,7 +108,9 @@ mixin _$ForecastingWeatherResponse {
     TResult Function(List<ForecastingMainResponse> list)?
         forecastingListResponse,
     TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)?
         forecastingMainResponse,
     TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)?
@@ -230,7 +239,9 @@ class _$ForecastingListResponse implements ForecastingListResponse {
     required TResult Function(List<ForecastingMainResponse> list)
         forecastingListResponse,
     required TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)
         forecastingMainResponse,
     required TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)
@@ -245,7 +256,9 @@ class _$ForecastingListResponse implements ForecastingListResponse {
     TResult Function(List<ForecastingMainResponse> list)?
         forecastingListResponse,
     TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)?
         forecastingMainResponse,
     TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)?
@@ -260,7 +273,9 @@ class _$ForecastingListResponse implements ForecastingListResponse {
     TResult Function(List<ForecastingMainResponse> list)?
         forecastingListResponse,
     TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)?
         forecastingMainResponse,
     TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)?
@@ -334,7 +349,10 @@ abstract class $ForecastingMainResponseCopyWith<$Res> {
   factory $ForecastingMainResponseCopyWith(ForecastingMainResponse value,
           $Res Function(ForecastingMainResponse) then) =
       _$ForecastingMainResponseCopyWithImpl<$Res>;
-  $Res call({ForecastingMainData main, List<ForecastingWeatherData> weather});
+  $Res call(
+      {ForecastingMainData main,
+      List<ForecastingWeatherData> weather,
+      @JsonKey(name: 'dt_txt') String time});
 }
 
 /// @nodoc
@@ -352,6 +370,7 @@ class _$ForecastingMainResponseCopyWithImpl<$Res>
   $Res call({
     Object? main = freezed,
     Object? weather = freezed,
+    Object? time = freezed,
   }) {
     return _then(ForecastingMainResponse(
       main == freezed
@@ -362,6 +381,10 @@ class _$ForecastingMainResponseCopyWithImpl<$Res>
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
               as List<ForecastingWeatherData>,
+      time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -369,7 +392,9 @@ class _$ForecastingMainResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ForecastingMainResponse implements ForecastingMainResponse {
-  _$ForecastingMainResponse(this.main, this.weather, {String? $type})
+  _$ForecastingMainResponse(
+      this.main, this.weather, @JsonKey(name: 'dt_txt') this.time,
+      {String? $type})
       : $type = $type ?? 'forecastingMainResponse';
 
   factory _$ForecastingMainResponse.fromJson(Map<String, dynamic> json) =>
@@ -379,13 +404,16 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
   final ForecastingMainData main;
   @override
   final List<ForecastingWeatherData> weather;
+  @override
+  @JsonKey(name: 'dt_txt')
+  final String time;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ForecastingWeatherResponse.forecastingMainResponse(main: $main, weather: $weather)';
+    return 'ForecastingWeatherResponse.forecastingMainResponse(main: $main, weather: $weather, time: $time)';
   }
 
   @override
@@ -394,14 +422,16 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
         (other.runtimeType == runtimeType &&
             other is ForecastingMainResponse &&
             const DeepCollectionEquality().equals(other.main, main) &&
-            const DeepCollectionEquality().equals(other.weather, weather));
+            const DeepCollectionEquality().equals(other.weather, weather) &&
+            const DeepCollectionEquality().equals(other.time, time));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(main),
-      const DeepCollectionEquality().hash(weather));
+      const DeepCollectionEquality().hash(weather),
+      const DeepCollectionEquality().hash(time));
 
   @JsonKey(ignore: true)
   @override
@@ -415,13 +445,15 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
     required TResult Function(List<ForecastingMainResponse> list)
         forecastingListResponse,
     required TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)
         forecastingMainResponse,
     required TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)
         currentOneDayResponse,
   }) {
-    return forecastingMainResponse(main, weather);
+    return forecastingMainResponse(main, weather, time);
   }
 
   @override
@@ -430,13 +462,15 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
     TResult Function(List<ForecastingMainResponse> list)?
         forecastingListResponse,
     TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)?
         forecastingMainResponse,
     TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)?
         currentOneDayResponse,
   }) {
-    return forecastingMainResponse?.call(main, weather);
+    return forecastingMainResponse?.call(main, weather, time);
   }
 
   @override
@@ -445,7 +479,9 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
     TResult Function(List<ForecastingMainResponse> list)?
         forecastingListResponse,
     TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)?
         forecastingMainResponse,
     TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)?
@@ -453,7 +489,7 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
     required TResult orElse(),
   }) {
     if (forecastingMainResponse != null) {
-      return forecastingMainResponse(main, weather);
+      return forecastingMainResponse(main, weather, time);
     }
     return orElse();
   }
@@ -503,14 +539,17 @@ class _$ForecastingMainResponse implements ForecastingMainResponse {
 
 abstract class ForecastingMainResponse implements ForecastingWeatherResponse {
   factory ForecastingMainResponse(
-          ForecastingMainData main, List<ForecastingWeatherData> weather) =
-      _$ForecastingMainResponse;
+      ForecastingMainData main,
+      List<ForecastingWeatherData> weather,
+      @JsonKey(name: 'dt_txt') String time) = _$ForecastingMainResponse;
 
   factory ForecastingMainResponse.fromJson(Map<String, dynamic> json) =
       _$ForecastingMainResponse.fromJson;
 
   ForecastingMainData get main;
   List<ForecastingWeatherData> get weather;
+  @JsonKey(name: 'dt_txt')
+  String get time;
   @JsonKey(ignore: true)
   $ForecastingMainResponseCopyWith<ForecastingMainResponse> get copyWith =>
       throw _privateConstructorUsedError;
@@ -625,7 +664,9 @@ class _$CurrentOneDayResponse implements CurrentOneDayResponse {
     required TResult Function(List<ForecastingMainResponse> list)
         forecastingListResponse,
     required TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)
         forecastingMainResponse,
     required TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)
@@ -640,7 +681,9 @@ class _$CurrentOneDayResponse implements CurrentOneDayResponse {
     TResult Function(List<ForecastingMainResponse> list)?
         forecastingListResponse,
     TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)?
         forecastingMainResponse,
     TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)?
@@ -655,7 +698,9 @@ class _$CurrentOneDayResponse implements CurrentOneDayResponse {
     TResult Function(List<ForecastingMainResponse> list)?
         forecastingListResponse,
     TResult Function(
-            ForecastingMainData main, List<ForecastingWeatherData> weather)?
+            ForecastingMainData main,
+            List<ForecastingWeatherData> weather,
+            @JsonKey(name: 'dt_txt') String time)?
         forecastingMainResponse,
     TResult Function(List<WeatherOneDay> weather, MainOneDay main,
             CloudsOneDay clouds, WindSpeedOneDay wind)?
