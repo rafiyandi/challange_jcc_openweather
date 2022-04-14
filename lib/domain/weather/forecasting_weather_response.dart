@@ -13,6 +13,7 @@ abstract class ForecastingWeatherResponse with _$ForecastingWeatherResponse {
   factory ForecastingWeatherResponse.forecastingMainResponse(
     ForecastingMainData main,
     List<ForecastingWeatherData> weather,
+    // @JsonKey(name: 'dt_txt') String time,
   ) = ForecastingMainResponse;
 
   factory ForecastingWeatherResponse.currentOneDayResponse(

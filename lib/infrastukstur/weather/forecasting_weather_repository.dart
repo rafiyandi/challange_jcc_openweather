@@ -59,11 +59,11 @@ class ForecastingWeatherRepository extends ForecastingWeatherInterface {
           });
 
       final _result = response.data;
-      print(_result);
+      // print(_result);
 
       final data = CurrentOneDayResponse.fromJson(_result);
 
-      print(data);
+      // print(data);
 
       return right(data);
     } catch (e) {

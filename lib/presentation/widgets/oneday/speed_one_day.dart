@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:forecasting/shared/theme.dart';
 
-class TempOneDay extends StatelessWidget {
-  const TempOneDay(
-      {Key? key, required this.icon, required this.cloudinessOneDay})
-      : super(key: key);
-  final int cloudinessOneDay;
-  final String icon;
+class SpeedOneDay extends StatelessWidget {
+  const SpeedOneDay({Key? key, required this.speed}) : super(key: key);
+  final double speed;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.network(
-          "http://openweathermap.org/img/wn/$icon@2x.png",
+        Image.asset(
+          "assets/wind.png",
           width: 40,
         ),
         Text(
-          "${cloudinessOneDay} hpa",
+          "${speed} m/s",
           style: secondaryTextStyle,
         ),
         Text(
-          "cloudiness",
+          "Wind",
           style: secondaryTextStyle,
         )
       ],

@@ -87,7 +87,7 @@ Map<String, dynamic> _$$CloudsOneDayToJson(_$CloudsOneDay instance) =>
 
 _$WindSpeedOneDay _$$WindSpeedOneDayFromJson(Map<String, dynamic> json) =>
     _$WindSpeedOneDay(
-      json['speed'] as int,
+      (json['speed'] as num).toDouble(),
       $type: json['runtimeType'] as String?,
     );
 

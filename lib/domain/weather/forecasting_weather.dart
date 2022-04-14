@@ -34,7 +34,7 @@ abstract class ForecastingWeather with _$ForecastingWeather {
   ) = CloudsOneDay;
 
   factory ForecastingWeather.windSpeedOneDay(
-    int speed,
+    double speed,
   ) = WindSpeedOneDay;
 
   factory ForecastingWeather.fromJson(Map<String, dynamic> json) =>

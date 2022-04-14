@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:forecasting/aplication/weather/bloc/weather_bloc.dart';
 import 'package:forecasting/domain/weather/forecasting_weather.dart';
+import 'package:forecasting/domain/weather/forecasting_weather_response.dart';
 import 'package:forecasting/injection.dart';
 import 'package:forecasting/presentation/widgets/content_page.dart';
 import 'package:forecasting/presentation/widgets/oneday/cloudiness_one_day.dart';
 import 'package:forecasting/presentation/widgets/oneday/humidity_one_day.dart';
 import 'package:forecasting/presentation/widgets/oneday/pressure_one_day.dart';
+import 'package:forecasting/presentation/widgets/oneday/speed_one_day.dart';
 import 'package:forecasting/shared/theme.dart';
+import 'package:intl/intl.dart';
 
 class Weatherpage extends StatefulWidget {
   const Weatherpage({Key? key, required this.cityName, required this.userName})
@@ -21,8 +24,6 @@ class Weatherpage extends StatefulWidget {
 }
 
 class _WeatherpageState extends State<Weatherpage> {
-  ForecastingMainData? _selectedMainData;
-
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -44,7 +45,7 @@ class _WeatherpageState extends State<Weatherpage> {
                       fontSize: 22, fontWeight: bold),
                 ),
                 Text(
-                  "Thurday, May 27, 2021",
+                  DateFormat.yMMMEd().format(DateTime.now()),
                   style: secondaryTextStyle.copyWith(),
                 ),
               ],
@@ -55,7 +56,7 @@ class _WeatherpageState extends State<Weatherpage> {
       );
     }
 
-    Widget tempHeader() {
+    Widget tempHeader(double temp) {
       return Container(
         margin: EdgeInsets.only(top: 15),
         child: Column(
@@ -90,7 +91,7 @@ class _WeatherpageState extends State<Weatherpage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "28.33 \u00B0",
+                    "$temp\u00B0",
                     style: secondaryTextStyle.copyWith(
                         fontSize: 35, fontWeight: bold),
                   ),
@@ -168,65 +169,26 @@ class _WeatherpageState extends State<Weatherpage> {
     //   );
     // }
 
-    Widget mainContentCurrDay() {
+    Widget mainContentCurrDay(
+        int humidity, int pressure, int clouds, double speed) {
       return Container(
-        margin: EdgeInsets.only(top: 30),
-        padding: EdgeInsets.all(20),
-        width: double.infinity,
-        decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(12)),
-        child: BlocProvider(
-          create: (context) => getIt<WeatherBloc>()
-            ..add(WeatherEvent.getOneDayCity(
-              cityName: widget.cityName,
-            )),
-          child: BlocBuilder<WeatherBloc, WeatherState>(
-            builder: (context, state) {
-              return Container(
-                child: state.maybeMap(
-                    orElse: (() => Text("Error")),
-                    mainCurrentDataOptions: (e) {
-                      if (e.onLoading) {
-                        return Center(
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            child: CircularProgressIndicator(),
-                          ),
-                        );
-                      } else {
-                        return e.curOneDayData.fold(
-                            () => Text("Dalam Sedang Dipersiapkan"),
-                            (a) => a.fold(
-                                  (l) => Text("Error"),
-                                  (r) => ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: 1,
-                                    itemBuilder: (context, index) {
-                                      return Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          HuminityOneDay(
-                                            humidity: r.main.humidity,
-                                            icon: r.weather[index].icon,
-                                          ),
-                                          PressureOneDay(
-                                              icon: r.weather[index].icon,
-                                              pressure: r.main.pressure),
-                                        ],
-                                      );
-                                    },
-                                  ),
-                                ));
-                      }
-                    }),
-              );
-            },
-          ),
-        ),
-      );
+          margin: EdgeInsets.only(top: 30),
+          padding: EdgeInsets.all(20),
+          width: double.infinity,
+          decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(12)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              HuminityOneDay(
+                humidity: humidity,
+              ),
+              PressureOneDay(pressure: pressure),
+              CloudinessOneDay(cloudinessOneDay: clouds),
+              SpeedOneDay(speed: speed)
+            ],
+          ));
     }
 
     Widget content() {
@@ -250,15 +212,51 @@ class _WeatherpageState extends State<Weatherpage> {
       backgroundColor: Colors.lightBlue.withOpacity(0.9),
       body: Container(
           margin: EdgeInsets.all(20),
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              header(),
-              tempHeader(),
-              // mainContent(),
-              mainContentCurrDay(),
-              content(),
-            ],
+          child: BlocProvider(
+            create: (context) => getIt<WeatherBloc>()
+              ..add(WeatherEvent.getOneDayCity(cityName: widget.cityName)),
+            child: BlocBuilder<WeatherBloc, WeatherState>(
+              builder: (context, state) {
+                return Container(
+                  child: state.maybeMap(
+                      orElse: (() => Text("Error")),
+                      mainCurrentDataOptions: (e) {
+                        if (e.onLoading) {
+                          return Center(
+                            child: Container(
+                              height: 30,
+                              width: 30,
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        } else {
+                          return e.curOneDayData.fold(
+                              () => Text("Dalam Sedang Dipersiapkan"),
+                              (a) => a.fold(
+                                    (l) => Text("Error"),
+                                    (r) => ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: 1,
+                                      itemBuilder: (context, index) {
+                                        return Column(
+                                          children: [
+                                            header(),
+                                            tempHeader(r.main.temp),
+                                            mainContentCurrDay(
+                                                r.main.humidity,
+                                                r.main.pressure,
+                                                r.clouds.all,
+                                                r.wind.speed)
+                                          ],
+                                        );
+                                      },
+                                    ),
+                                  ));
+                        }
+                      }),
+                );
+              },
+            ),
           )),
     );
   }

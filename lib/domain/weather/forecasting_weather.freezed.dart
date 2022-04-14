@@ -79,7 +79,7 @@ class _$ForecastingWeatherTearOff {
     );
   }
 
-  WindSpeedOneDay windSpeedOneDay(int speed) {
+  WindSpeedOneDay windSpeedOneDay(double speed) {
     return WindSpeedOneDay(
       speed,
     );
@@ -106,7 +106,7 @@ mixin _$ForecastingWeather {
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
     required TResult Function(int all) cloudsOneDay,
-    required TResult Function(int speed) windSpeedOneDay,
+    required TResult Function(double speed) windSpeedOneDay,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -119,7 +119,7 @@ mixin _$ForecastingWeather {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -132,7 +132,7 @@ mixin _$ForecastingWeather {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -289,7 +289,7 @@ class _$ForecastingMainData implements ForecastingMainData {
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
     required TResult Function(int all) cloudsOneDay,
-    required TResult Function(int speed) windSpeedOneDay,
+    required TResult Function(double speed) windSpeedOneDay,
   }) {
     return forecastingMainData(temp, pressure, humidity);
   }
@@ -305,7 +305,7 @@ class _$ForecastingMainData implements ForecastingMainData {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
   }) {
     return forecastingMainData?.call(temp, pressure, humidity);
   }
@@ -321,7 +321,7 @@ class _$ForecastingMainData implements ForecastingMainData {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (forecastingMainData != null) {
@@ -498,7 +498,7 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
     required TResult Function(int all) cloudsOneDay,
-    required TResult Function(int speed) windSpeedOneDay,
+    required TResult Function(double speed) windSpeedOneDay,
   }) {
     return forecastingWeatherData(main, description, icon);
   }
@@ -514,7 +514,7 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
   }) {
     return forecastingWeatherData?.call(main, description, icon);
   }
@@ -530,7 +530,7 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (forecastingWeatherData != null) {
@@ -705,7 +705,7 @@ class _$WeatherOneDay implements WeatherOneDay {
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
     required TResult Function(int all) cloudsOneDay,
-    required TResult Function(int speed) windSpeedOneDay,
+    required TResult Function(double speed) windSpeedOneDay,
   }) {
     return weatherOneDay(main, description, icon);
   }
@@ -721,7 +721,7 @@ class _$WeatherOneDay implements WeatherOneDay {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
   }) {
     return weatherOneDay?.call(main, description, icon);
   }
@@ -737,7 +737,7 @@ class _$WeatherOneDay implements WeatherOneDay {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (weatherOneDay != null) {
@@ -910,7 +910,7 @@ class _$MainOneDay implements MainOneDay {
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
     required TResult Function(int all) cloudsOneDay,
-    required TResult Function(int speed) windSpeedOneDay,
+    required TResult Function(double speed) windSpeedOneDay,
   }) {
     return mainOneDay(temp, pressure, humidity);
   }
@@ -926,7 +926,7 @@ class _$MainOneDay implements MainOneDay {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
   }) {
     return mainOneDay?.call(temp, pressure, humidity);
   }
@@ -942,7 +942,7 @@ class _$MainOneDay implements MainOneDay {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (mainOneDay != null) {
@@ -1095,7 +1095,7 @@ class _$CloudsOneDay implements CloudsOneDay {
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
     required TResult Function(int all) cloudsOneDay,
-    required TResult Function(int speed) windSpeedOneDay,
+    required TResult Function(double speed) windSpeedOneDay,
   }) {
     return cloudsOneDay(all);
   }
@@ -1111,7 +1111,7 @@ class _$CloudsOneDay implements CloudsOneDay {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
   }) {
     return cloudsOneDay?.call(all);
   }
@@ -1127,7 +1127,7 @@ class _$CloudsOneDay implements CloudsOneDay {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (cloudsOneDay != null) {
@@ -1203,7 +1203,7 @@ abstract class $WindSpeedOneDayCopyWith<$Res> {
   factory $WindSpeedOneDayCopyWith(
           WindSpeedOneDay value, $Res Function(WindSpeedOneDay) then) =
       _$WindSpeedOneDayCopyWithImpl<$Res>;
-  $Res call({int speed});
+  $Res call({double speed});
 }
 
 /// @nodoc
@@ -1225,7 +1225,7 @@ class _$WindSpeedOneDayCopyWithImpl<$Res>
       speed == freezed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ));
   }
 }
@@ -1240,7 +1240,7 @@ class _$WindSpeedOneDay implements WindSpeedOneDay {
       _$$WindSpeedOneDayFromJson(json);
 
   @override
-  final int speed;
+  final double speed;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1279,7 +1279,7 @@ class _$WindSpeedOneDay implements WindSpeedOneDay {
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
     required TResult Function(int all) cloudsOneDay,
-    required TResult Function(int speed) windSpeedOneDay,
+    required TResult Function(double speed) windSpeedOneDay,
   }) {
     return windSpeedOneDay(speed);
   }
@@ -1295,7 +1295,7 @@ class _$WindSpeedOneDay implements WindSpeedOneDay {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
   }) {
     return windSpeedOneDay?.call(speed);
   }
@@ -1311,7 +1311,7 @@ class _$WindSpeedOneDay implements WindSpeedOneDay {
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
     TResult Function(int all)? cloudsOneDay,
-    TResult Function(int speed)? windSpeedOneDay,
+    TResult Function(double speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (windSpeedOneDay != null) {
@@ -1371,12 +1371,12 @@ class _$WindSpeedOneDay implements WindSpeedOneDay {
 }
 
 abstract class WindSpeedOneDay implements ForecastingWeather {
-  factory WindSpeedOneDay(int speed) = _$WindSpeedOneDay;
+  factory WindSpeedOneDay(double speed) = _$WindSpeedOneDay;
 
   factory WindSpeedOneDay.fromJson(Map<String, dynamic> json) =
       _$WindSpeedOneDay.fromJson;
 
-  int get speed;
+  double get speed;
   @JsonKey(ignore: true)
   $WindSpeedOneDayCopyWith<WindSpeedOneDay> get copyWith =>
       throw _privateConstructorUsedError;
