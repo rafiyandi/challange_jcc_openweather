@@ -63,8 +63,6 @@ class ForecastingWeatherRepository extends ForecastingWeatherInterface {
 
       final data = CurrentOneDayResponse.fromJson(_result);
 
-      // print(cityName);
-
       print(data);
 
       return right(data);

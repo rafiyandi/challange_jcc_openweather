@@ -49,6 +49,8 @@ _$CurrentOneDayResponse _$$CurrentOneDayResponseFromJson(
           .map((e) => WeatherOneDay.fromJson(e as Map<String, dynamic>))
           .toList(),
       MainOneDay.fromJson(json['main'] as Map<String, dynamic>),
+      CloudsOneDay.fromJson(json['clouds'] as Map<String, dynamic>),
+      WindSpeedOneDay.fromJson(json['wind'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -57,5 +59,7 @@ Map<String, dynamic> _$$CurrentOneDayResponseToJson(
     <String, dynamic>{
       'weather': instance.weather,
       'main': instance.main,
+      'clouds': instance.clouds,
+      'wind': instance.wind,
       'runtimeType': instance.$type,
     };

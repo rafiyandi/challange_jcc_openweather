@@ -29,6 +29,14 @@ abstract class ForecastingWeather with _$ForecastingWeather {
     int humidity,
   ) = MainOneDay;
 
+  factory ForecastingWeather.cloudsOneDay(
+    int all,
+  ) = CloudsOneDay;
+
+  factory ForecastingWeather.windSpeedOneDay(
+    int speed,
+  ) = WindSpeedOneDay;
+
   factory ForecastingWeather.fromJson(Map<String, dynamic> json) =>
       _$ForecastingWeatherFromJson(json);
 }

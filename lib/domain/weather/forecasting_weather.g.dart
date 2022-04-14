@@ -72,3 +72,27 @@ Map<String, dynamic> _$$MainOneDayToJson(_$MainOneDay instance) =>
       'humidity': instance.humidity,
       'runtimeType': instance.$type,
     };
+
+_$CloudsOneDay _$$CloudsOneDayFromJson(Map<String, dynamic> json) =>
+    _$CloudsOneDay(
+      json['all'] as int,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$CloudsOneDayToJson(_$CloudsOneDay instance) =>
+    <String, dynamic>{
+      'all': instance.all,
+      'runtimeType': instance.$type,
+    };
+
+_$WindSpeedOneDay _$$WindSpeedOneDayFromJson(Map<String, dynamic> json) =>
+    _$WindSpeedOneDay(
+      json['speed'] as int,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$WindSpeedOneDayToJson(_$WindSpeedOneDay instance) =>
+    <String, dynamic>{
+      'speed': instance.speed,
+      'runtimeType': instance.$type,
+    };

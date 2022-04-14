@@ -11,7 +11,7 @@ class HuminityOneDay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
+        Image.network(
           "http://openweathermap.org/img/wn/$icon@2x.png",
           width: 40,
         ),

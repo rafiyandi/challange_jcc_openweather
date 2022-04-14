@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:forecasting/shared/theme.dart';
 
-class PressureOneDay extends StatelessWidget {
-  const PressureOneDay({Key? key, required this.icon, required this.pressure})
+class TempOneDay extends StatelessWidget {
+  const TempOneDay(
+      {Key? key, required this.icon, required this.cloudinessOneDay})
       : super(key: key);
-  final int pressure;
+  final int cloudinessOneDay;
   final String icon;
 
   @override
@@ -16,11 +17,11 @@ class PressureOneDay extends StatelessWidget {
           width: 40,
         ),
         Text(
-          "${pressure} hpa",
+          "${cloudinessOneDay} hpa",
           style: secondaryTextStyle,
         ),
         Text(
-          "Pressure",
+          "cloudiness",
           style: secondaryTextStyle,
         )
       ],

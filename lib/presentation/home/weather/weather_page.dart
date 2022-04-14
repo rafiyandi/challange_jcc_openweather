@@ -4,6 +4,7 @@ import 'package:forecasting/aplication/weather/bloc/weather_bloc.dart';
 import 'package:forecasting/domain/weather/forecasting_weather.dart';
 import 'package:forecasting/injection.dart';
 import 'package:forecasting/presentation/widgets/content_page.dart';
+import 'package:forecasting/presentation/widgets/oneday/cloudiness_one_day.dart';
 import 'package:forecasting/presentation/widgets/oneday/humidity_one_day.dart';
 import 'package:forecasting/presentation/widgets/oneday/pressure_one_day.dart';
 import 'package:forecasting/shared/theme.dart';
@@ -199,18 +200,13 @@ class _WeatherpageState extends State<Weatherpage> {
                             () => Text("Dalam Sedang Dipersiapkan"),
                             (a) => a.fold(
                                   (l) => Text("Error"),
-                                  (r) => GridView.builder(
-                                    scrollDirection: Axis.horizontal,
+                                  (r) => ListView.builder(
                                     shrinkWrap: true,
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 3,
-                                    ),
-                                    itemCount: 2,
+                                    itemCount: 1,
                                     itemBuilder: (context, index) {
                                       return Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           HuminityOneDay(
                                             humidity: r.main.humidity,
@@ -219,9 +215,6 @@ class _WeatherpageState extends State<Weatherpage> {
                                           PressureOneDay(
                                               icon: r.weather[index].icon,
                                               pressure: r.main.pressure),
-                                          HuminityOneDay(
-                                              icon: r.weather[index].icon,
-                                              humidity: r.main.humidity),
                                         ],
                                       );
                                     },

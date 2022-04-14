@@ -24,6 +24,10 @@ ForecastingWeather _$ForecastingWeatherFromJson(Map<String, dynamic> json) {
       return WeatherOneDay.fromJson(json);
     case 'mainOneDay':
       return MainOneDay.fromJson(json);
+    case 'cloudsOneDay':
+      return CloudsOneDay.fromJson(json);
+    case 'windSpeedOneDay':
+      return WindSpeedOneDay.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'ForecastingWeather',
@@ -69,6 +73,18 @@ class _$ForecastingWeatherTearOff {
     );
   }
 
+  CloudsOneDay cloudsOneDay(int all) {
+    return CloudsOneDay(
+      all,
+    );
+  }
+
+  WindSpeedOneDay windSpeedOneDay(int speed) {
+    return WindSpeedOneDay(
+      speed,
+    );
+  }
+
   ForecastingWeather fromJson(Map<String, Object?> json) {
     return ForecastingWeather.fromJson(json);
   }
@@ -89,6 +105,8 @@ mixin _$ForecastingWeather {
         weatherOneDay,
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
+    required TResult Function(int all) cloudsOneDay,
+    required TResult Function(int speed) windSpeedOneDay,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -100,6 +118,8 @@ mixin _$ForecastingWeather {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +131,8 @@ mixin _$ForecastingWeather {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +143,8 @@ mixin _$ForecastingWeather {
         forecastingWeatherData,
     required TResult Function(WeatherOneDay value) weatherOneDay,
     required TResult Function(MainOneDay value) mainOneDay,
+    required TResult Function(CloudsOneDay value) cloudsOneDay,
+    required TResult Function(WindSpeedOneDay value) windSpeedOneDay,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -129,6 +153,8 @@ mixin _$ForecastingWeather {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -137,6 +163,8 @@ mixin _$ForecastingWeather {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -260,6 +288,8 @@ class _$ForecastingMainData implements ForecastingMainData {
         weatherOneDay,
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
+    required TResult Function(int all) cloudsOneDay,
+    required TResult Function(int speed) windSpeedOneDay,
   }) {
     return forecastingMainData(temp, pressure, humidity);
   }
@@ -274,6 +304,8 @@ class _$ForecastingMainData implements ForecastingMainData {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
   }) {
     return forecastingMainData?.call(temp, pressure, humidity);
   }
@@ -288,6 +320,8 @@ class _$ForecastingMainData implements ForecastingMainData {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (forecastingMainData != null) {
@@ -304,6 +338,8 @@ class _$ForecastingMainData implements ForecastingMainData {
         forecastingWeatherData,
     required TResult Function(WeatherOneDay value) weatherOneDay,
     required TResult Function(MainOneDay value) mainOneDay,
+    required TResult Function(CloudsOneDay value) cloudsOneDay,
+    required TResult Function(WindSpeedOneDay value) windSpeedOneDay,
   }) {
     return forecastingMainData(this);
   }
@@ -315,6 +351,8 @@ class _$ForecastingMainData implements ForecastingMainData {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
   }) {
     return forecastingMainData?.call(this);
   }
@@ -326,6 +364,8 @@ class _$ForecastingMainData implements ForecastingMainData {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (forecastingMainData != null) {
@@ -457,6 +497,8 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
         weatherOneDay,
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
+    required TResult Function(int all) cloudsOneDay,
+    required TResult Function(int speed) windSpeedOneDay,
   }) {
     return forecastingWeatherData(main, description, icon);
   }
@@ -471,6 +513,8 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
   }) {
     return forecastingWeatherData?.call(main, description, icon);
   }
@@ -485,6 +529,8 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (forecastingWeatherData != null) {
@@ -501,6 +547,8 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
         forecastingWeatherData,
     required TResult Function(WeatherOneDay value) weatherOneDay,
     required TResult Function(MainOneDay value) mainOneDay,
+    required TResult Function(CloudsOneDay value) cloudsOneDay,
+    required TResult Function(WindSpeedOneDay value) windSpeedOneDay,
   }) {
     return forecastingWeatherData(this);
   }
@@ -512,6 +560,8 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
   }) {
     return forecastingWeatherData?.call(this);
   }
@@ -523,6 +573,8 @@ class _$ForecastingWeatherData implements ForecastingWeatherData {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (forecastingWeatherData != null) {
@@ -652,6 +704,8 @@ class _$WeatherOneDay implements WeatherOneDay {
         weatherOneDay,
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
+    required TResult Function(int all) cloudsOneDay,
+    required TResult Function(int speed) windSpeedOneDay,
   }) {
     return weatherOneDay(main, description, icon);
   }
@@ -666,6 +720,8 @@ class _$WeatherOneDay implements WeatherOneDay {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
   }) {
     return weatherOneDay?.call(main, description, icon);
   }
@@ -680,6 +736,8 @@ class _$WeatherOneDay implements WeatherOneDay {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (weatherOneDay != null) {
@@ -696,6 +754,8 @@ class _$WeatherOneDay implements WeatherOneDay {
         forecastingWeatherData,
     required TResult Function(WeatherOneDay value) weatherOneDay,
     required TResult Function(MainOneDay value) mainOneDay,
+    required TResult Function(CloudsOneDay value) cloudsOneDay,
+    required TResult Function(WindSpeedOneDay value) windSpeedOneDay,
   }) {
     return weatherOneDay(this);
   }
@@ -707,6 +767,8 @@ class _$WeatherOneDay implements WeatherOneDay {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
   }) {
     return weatherOneDay?.call(this);
   }
@@ -718,6 +780,8 @@ class _$WeatherOneDay implements WeatherOneDay {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (weatherOneDay != null) {
@@ -845,6 +909,8 @@ class _$MainOneDay implements MainOneDay {
         weatherOneDay,
     required TResult Function(double temp, int pressure, int humidity)
         mainOneDay,
+    required TResult Function(int all) cloudsOneDay,
+    required TResult Function(int speed) windSpeedOneDay,
   }) {
     return mainOneDay(temp, pressure, humidity);
   }
@@ -859,6 +925,8 @@ class _$MainOneDay implements MainOneDay {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
   }) {
     return mainOneDay?.call(temp, pressure, humidity);
   }
@@ -873,6 +941,8 @@ class _$MainOneDay implements MainOneDay {
     TResult Function(String main, String description, String icon)?
         weatherOneDay,
     TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (mainOneDay != null) {
@@ -889,6 +959,8 @@ class _$MainOneDay implements MainOneDay {
         forecastingWeatherData,
     required TResult Function(WeatherOneDay value) weatherOneDay,
     required TResult Function(MainOneDay value) mainOneDay,
+    required TResult Function(CloudsOneDay value) cloudsOneDay,
+    required TResult Function(WindSpeedOneDay value) windSpeedOneDay,
   }) {
     return mainOneDay(this);
   }
@@ -900,6 +972,8 @@ class _$MainOneDay implements MainOneDay {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
   }) {
     return mainOneDay?.call(this);
   }
@@ -911,6 +985,8 @@ class _$MainOneDay implements MainOneDay {
     TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
     TResult Function(WeatherOneDay value)? weatherOneDay,
     TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
     required TResult orElse(),
   }) {
     if (mainOneDay != null) {
@@ -936,5 +1012,372 @@ abstract class MainOneDay implements ForecastingWeather {
   int get humidity;
   @JsonKey(ignore: true)
   $MainOneDayCopyWith<MainOneDay> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CloudsOneDayCopyWith<$Res> {
+  factory $CloudsOneDayCopyWith(
+          CloudsOneDay value, $Res Function(CloudsOneDay) then) =
+      _$CloudsOneDayCopyWithImpl<$Res>;
+  $Res call({int all});
+}
+
+/// @nodoc
+class _$CloudsOneDayCopyWithImpl<$Res>
+    extends _$ForecastingWeatherCopyWithImpl<$Res>
+    implements $CloudsOneDayCopyWith<$Res> {
+  _$CloudsOneDayCopyWithImpl(
+      CloudsOneDay _value, $Res Function(CloudsOneDay) _then)
+      : super(_value, (v) => _then(v as CloudsOneDay));
+
+  @override
+  CloudsOneDay get _value => super._value as CloudsOneDay;
+
+  @override
+  $Res call({
+    Object? all = freezed,
+  }) {
+    return _then(CloudsOneDay(
+      all == freezed
+          ? _value.all
+          : all // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CloudsOneDay implements CloudsOneDay {
+  _$CloudsOneDay(this.all, {String? $type}) : $type = $type ?? 'cloudsOneDay';
+
+  factory _$CloudsOneDay.fromJson(Map<String, dynamic> json) =>
+      _$$CloudsOneDayFromJson(json);
+
+  @override
+  final int all;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'ForecastingWeather.cloudsOneDay(all: $all)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CloudsOneDay &&
+            const DeepCollectionEquality().equals(other.all, all));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(all));
+
+  @JsonKey(ignore: true)
+  @override
+  $CloudsOneDayCopyWith<CloudsOneDay> get copyWith =>
+      _$CloudsOneDayCopyWithImpl<CloudsOneDay>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(double temp, int pressure, int humidity)
+        forecastingMainData,
+    required TResult Function(String main, String description, String icon)
+        forecastingWeatherData,
+    required TResult Function(String main, String description, String icon)
+        weatherOneDay,
+    required TResult Function(double temp, int pressure, int humidity)
+        mainOneDay,
+    required TResult Function(int all) cloudsOneDay,
+    required TResult Function(int speed) windSpeedOneDay,
+  }) {
+    return cloudsOneDay(all);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
+    TResult Function(String main, String description, String icon)?
+        forecastingWeatherData,
+    TResult Function(String main, String description, String icon)?
+        weatherOneDay,
+    TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
+  }) {
+    return cloudsOneDay?.call(all);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
+    TResult Function(String main, String description, String icon)?
+        forecastingWeatherData,
+    TResult Function(String main, String description, String icon)?
+        weatherOneDay,
+    TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
+    required TResult orElse(),
+  }) {
+    if (cloudsOneDay != null) {
+      return cloudsOneDay(all);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ForecastingMainData value) forecastingMainData,
+    required TResult Function(ForecastingWeatherData value)
+        forecastingWeatherData,
+    required TResult Function(WeatherOneDay value) weatherOneDay,
+    required TResult Function(MainOneDay value) mainOneDay,
+    required TResult Function(CloudsOneDay value) cloudsOneDay,
+    required TResult Function(WindSpeedOneDay value) windSpeedOneDay,
+  }) {
+    return cloudsOneDay(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ForecastingMainData value)? forecastingMainData,
+    TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
+    TResult Function(WeatherOneDay value)? weatherOneDay,
+    TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
+  }) {
+    return cloudsOneDay?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ForecastingMainData value)? forecastingMainData,
+    TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
+    TResult Function(WeatherOneDay value)? weatherOneDay,
+    TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
+    required TResult orElse(),
+  }) {
+    if (cloudsOneDay != null) {
+      return cloudsOneDay(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CloudsOneDayToJson(this);
+  }
+}
+
+abstract class CloudsOneDay implements ForecastingWeather {
+  factory CloudsOneDay(int all) = _$CloudsOneDay;
+
+  factory CloudsOneDay.fromJson(Map<String, dynamic> json) =
+      _$CloudsOneDay.fromJson;
+
+  int get all;
+  @JsonKey(ignore: true)
+  $CloudsOneDayCopyWith<CloudsOneDay> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $WindSpeedOneDayCopyWith<$Res> {
+  factory $WindSpeedOneDayCopyWith(
+          WindSpeedOneDay value, $Res Function(WindSpeedOneDay) then) =
+      _$WindSpeedOneDayCopyWithImpl<$Res>;
+  $Res call({int speed});
+}
+
+/// @nodoc
+class _$WindSpeedOneDayCopyWithImpl<$Res>
+    extends _$ForecastingWeatherCopyWithImpl<$Res>
+    implements $WindSpeedOneDayCopyWith<$Res> {
+  _$WindSpeedOneDayCopyWithImpl(
+      WindSpeedOneDay _value, $Res Function(WindSpeedOneDay) _then)
+      : super(_value, (v) => _then(v as WindSpeedOneDay));
+
+  @override
+  WindSpeedOneDay get _value => super._value as WindSpeedOneDay;
+
+  @override
+  $Res call({
+    Object? speed = freezed,
+  }) {
+    return _then(WindSpeedOneDay(
+      speed == freezed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$WindSpeedOneDay implements WindSpeedOneDay {
+  _$WindSpeedOneDay(this.speed, {String? $type})
+      : $type = $type ?? 'windSpeedOneDay';
+
+  factory _$WindSpeedOneDay.fromJson(Map<String, dynamic> json) =>
+      _$$WindSpeedOneDayFromJson(json);
+
+  @override
+  final int speed;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'ForecastingWeather.windSpeedOneDay(speed: $speed)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WindSpeedOneDay &&
+            const DeepCollectionEquality().equals(other.speed, speed));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(speed));
+
+  @JsonKey(ignore: true)
+  @override
+  $WindSpeedOneDayCopyWith<WindSpeedOneDay> get copyWith =>
+      _$WindSpeedOneDayCopyWithImpl<WindSpeedOneDay>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(double temp, int pressure, int humidity)
+        forecastingMainData,
+    required TResult Function(String main, String description, String icon)
+        forecastingWeatherData,
+    required TResult Function(String main, String description, String icon)
+        weatherOneDay,
+    required TResult Function(double temp, int pressure, int humidity)
+        mainOneDay,
+    required TResult Function(int all) cloudsOneDay,
+    required TResult Function(int speed) windSpeedOneDay,
+  }) {
+    return windSpeedOneDay(speed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
+    TResult Function(String main, String description, String icon)?
+        forecastingWeatherData,
+    TResult Function(String main, String description, String icon)?
+        weatherOneDay,
+    TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
+  }) {
+    return windSpeedOneDay?.call(speed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(double temp, int pressure, int humidity)?
+        forecastingMainData,
+    TResult Function(String main, String description, String icon)?
+        forecastingWeatherData,
+    TResult Function(String main, String description, String icon)?
+        weatherOneDay,
+    TResult Function(double temp, int pressure, int humidity)? mainOneDay,
+    TResult Function(int all)? cloudsOneDay,
+    TResult Function(int speed)? windSpeedOneDay,
+    required TResult orElse(),
+  }) {
+    if (windSpeedOneDay != null) {
+      return windSpeedOneDay(speed);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ForecastingMainData value) forecastingMainData,
+    required TResult Function(ForecastingWeatherData value)
+        forecastingWeatherData,
+    required TResult Function(WeatherOneDay value) weatherOneDay,
+    required TResult Function(MainOneDay value) mainOneDay,
+    required TResult Function(CloudsOneDay value) cloudsOneDay,
+    required TResult Function(WindSpeedOneDay value) windSpeedOneDay,
+  }) {
+    return windSpeedOneDay(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ForecastingMainData value)? forecastingMainData,
+    TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
+    TResult Function(WeatherOneDay value)? weatherOneDay,
+    TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
+  }) {
+    return windSpeedOneDay?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ForecastingMainData value)? forecastingMainData,
+    TResult Function(ForecastingWeatherData value)? forecastingWeatherData,
+    TResult Function(WeatherOneDay value)? weatherOneDay,
+    TResult Function(MainOneDay value)? mainOneDay,
+    TResult Function(CloudsOneDay value)? cloudsOneDay,
+    TResult Function(WindSpeedOneDay value)? windSpeedOneDay,
+    required TResult orElse(),
+  }) {
+    if (windSpeedOneDay != null) {
+      return windSpeedOneDay(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$WindSpeedOneDayToJson(this);
+  }
+}
+
+abstract class WindSpeedOneDay implements ForecastingWeather {
+  factory WindSpeedOneDay(int speed) = _$WindSpeedOneDay;
+
+  factory WindSpeedOneDay.fromJson(Map<String, dynamic> json) =
+      _$WindSpeedOneDay.fromJson;
+
+  int get speed;
+  @JsonKey(ignore: true)
+  $WindSpeedOneDayCopyWith<WindSpeedOneDay> get copyWith =>
       throw _privateConstructorUsedError;
 }
