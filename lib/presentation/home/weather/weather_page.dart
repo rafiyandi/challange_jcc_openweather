@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:forecasting/aplication/weather/bloc/weather_bloc.dart';
-import 'package:forecasting/domain/weather/forecasting_weather.dart';
-import 'package:forecasting/domain/weather/forecasting_weather_response.dart';
 import 'package:forecasting/injection.dart';
-import 'package:forecasting/presentation/widgets/content_page.dart';
+import 'package:forecasting/presentation/widgets/sevendday/content_page.dart';
 import 'package:forecasting/presentation/widgets/oneday/cloudiness_one_day.dart';
 import 'package:forecasting/presentation/widgets/oneday/humidity_one_day.dart';
 import 'package:forecasting/presentation/widgets/oneday/pressure_one_day.dart';
 import 'package:forecasting/presentation/widgets/oneday/speed_one_day.dart';
 import 'package:forecasting/shared/theme.dart';
 import 'package:intl/intl.dart';
-
-import '../../../infrastukstur/weather/forecasting_weather_repository.dart';
 
 class Weatherpage extends StatefulWidget {
   const Weatherpage({Key? key, required this.cityName, required this.userName})
@@ -26,25 +22,34 @@ class Weatherpage extends StatefulWidget {
 }
 
 class _WeatherpageState extends State<Weatherpage> {
-  void setTime() {
+  String setTime() {
+    String time;
+
     var date = DateTime.now();
 
     var hour = DateFormat.H().format(date);
-    String setHour = hour.substring(1);
+    String setHour = hour;
+    int subHour = int.parse(setHour);
 
-    if (setHour == "2") {
-      print("selamat pagi");
+    if (subHour >= 4 && subHour <= 11) {
+      time = "Good Morning";
+    } else if (subHour >= 12 && subHour <= 18) {
+      time = "Good Afternoon";
+    } else if (subHour >= 19 && subHour <= 23) {
+      time = "Good Night";
+    } else if (subHour >= 0 && subHour <= 3) {
+      time = "Good Night";
     } else {
-      print("tidak bisa");
+      time = "Error";
     }
-
-    print("Jam ni boss" + setHour);
+    print(subHour);
+    return time;
   }
 
   @override
   void initState() {
+    // TODO: implement initState
     setTime();
-
     super.initState();
   }
 
@@ -80,7 +85,7 @@ class _WeatherpageState extends State<Weatherpage> {
       );
     }
 
-    Widget tempHeader(double temp) {
+    Widget tempHeader(double temp, String icon) {
       return Container(
         margin: EdgeInsets.only(top: 15),
         child: Column(
@@ -91,7 +96,7 @@ class _WeatherpageState extends State<Weatherpage> {
                 children: [
                   Expanded(
                     child: Text(
-                      "Selamat Sore, ${widget.userName}",
+                      setTime() + " ${widget.userName}",
                       overflow: TextOverflow.ellipsis,
                       style: secondaryTextStyle.copyWith(
                           fontSize: 20, fontWeight: medium),
@@ -99,7 +104,7 @@ class _WeatherpageState extends State<Weatherpage> {
                   ),
                   SizedBox(width: 5),
                   Text(
-                    "Clounds",
+                    "Clouds",
                     style: secondaryTextStyle.copyWith(
                         fontSize: 20, fontWeight: medium),
                   ),
@@ -107,7 +112,7 @@ class _WeatherpageState extends State<Weatherpage> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -119,9 +124,9 @@ class _WeatherpageState extends State<Weatherpage> {
                     style: secondaryTextStyle.copyWith(
                         fontSize: 35, fontWeight: bold),
                   ),
-                  Image.asset(
-                    "assets/icon_sun_cloud.png",
-                    width: 60,
+                  Image.network(
+                    'http://openweathermap.org/img/wn/$icon@2x.png',
+                    width: 75,
                   )
                 ],
               ),
@@ -131,67 +136,69 @@ class _WeatherpageState extends State<Weatherpage> {
       );
     }
 
-    // Widget mainContent() {
-    //   return Container(
-    //     margin: EdgeInsets.only(top: 30),
-    //     padding: EdgeInsets.all(20),
-    //     width: double.infinity,
-    //     decoration: BoxDecoration(
-    //         color: Colors.black.withOpacity(0.3),
-    //         borderRadius: BorderRadius.circular(12)),
-    //     child: BlocProvider(
-    //       create: (context) => getIt<WeatherBloc>()
-    //         ..add(WeatherEvent.getMainData(
-    //           cityName: widget.cityName,
-    //         )),
-    //       child: BlocBuilder<WeatherBloc, WeatherState>(
-    //         builder: (context, state) {
-    //           return Container(
-    //             child: state.maybeMap(
-    //                 orElse: (() => Text("Error")),
-    //                 mainDataOptions: (e) {
-    //                   if (e.onLoading) {
-    //                     return Center(
-    //                       child: Container(
-    //                         height: 30,
-    //                         width: 30,
-    //                         child: CircularProgressIndicator(),
-    //                       ),
-    //                     );
-    //                   } else {
-    //                     return e.weatherData.fold(
-    //                         () => Text("Dalam Sedang Dipersiapkan"),
-    //                         (a) => a.fold(
-    //                               (l) => Text("Error"),
-    //                               (r) => GridView.builder(
-    //                                 shrinkWrap: true,
-    //                                 gridDelegate:
-    //                                     SliverGridDelegateWithFixedCrossAxisCount(
-    //                                   crossAxisCount: 3,
-    //                                 ),
-    //                                 itemCount: 3,
-    //                                 itemBuilder: (context, index) {
-    //                                   return Row(
-    //                                     mainAxisAlignment:
-    //                                         MainAxisAlignment.start,
-    //                                     children: [
-    //                                       PropertyMainPage(
-    //                                         humidity:
-    //                                             r.list[index].main.humidity,
-    //                                       )
-    //                                     ],
-    //                                   );
-    //                                 },
-    //                               ),
-    //                             ));
-    //                   }
-    //                 }),
-    //           );
-    //         },
-    //       ),
-    //     ),
-    //   );
-    // }
+    Widget mainContent() {
+      return Container(
+        margin: EdgeInsets.only(top: 30),
+        padding: EdgeInsets.all(20),
+        width: double.infinity,
+        decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.3),
+            borderRadius: BorderRadius.circular(12)),
+        child: BlocProvider(
+          create: (context) => getIt<WeatherBloc>()
+            ..add(WeatherEvent.getMainData(
+              cityName: widget.cityName,
+            )),
+          child: BlocBuilder<WeatherBloc, WeatherState>(
+            builder: (context, state) {
+              return Container(
+                child: state.maybeMap(
+                    orElse: (() => Text("Error")),
+                    mainDataOptions: (e) {
+                      if (e.onLoading) {
+                        return Center(
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      } else {
+                        return e.weatherData.fold(
+                            () => Text("Dalam Sedang Dipersiapkan"),
+                            (a) => a.fold(
+                                (l) => Text("Error"),
+                                (r) => SizedBox(
+                                      child: ListView.builder(
+                                        physics: NeverScrollableScrollPhysics(),
+                                        shrinkWrap: true,
+                                        itemCount: r.list.length,
+                                        itemBuilder: (context, index) {
+                                          var timeHour = DateFormat('hh - mm')
+                                              .format(r.list[index].dateTime);
+
+                                          var timeNameDay = DateFormat.E()
+                                              .format(r.list[index].dateTime);
+
+                                          var timeMountDay = DateFormat.Md()
+                                              .format(r.list[index].dateTime);
+                                          return ContentPage(
+                                            day: timeNameDay,
+                                            mountDay: timeMountDay,
+                                            timeHour: timeHour,
+                                            temp: r.list[index].main.temp,
+                                          );
+                                        },
+                                      ),
+                                    )));
+                      }
+                    }),
+              );
+            },
+          ),
+        ),
+      );
+    }
 
     Widget mainContentCurrDay(
         int humidity, int pressure, int clouds, double speed) {
@@ -215,23 +222,6 @@ class _WeatherpageState extends State<Weatherpage> {
           ));
     }
 
-    Widget content() {
-      return Container(
-        margin: const EdgeInsets.symmetric(vertical: 20),
-        padding: const EdgeInsets.all(20),
-        width: double.infinity,
-        decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(12)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ContentPage(),
-          ],
-        ),
-      );
-    }
-
     return Scaffold(
       backgroundColor: Colors.lightBlue.withOpacity(0.9),
       body: Container(
@@ -240,12 +230,7 @@ class _WeatherpageState extends State<Weatherpage> {
             create: (context) => getIt<WeatherBloc>()
               ..add(WeatherEvent.getOneDayCity(cityName: widget.cityName)),
             child: BlocConsumer<WeatherBloc, WeatherState>(
-              listener: (context, state) {
-                // state.maybeMap(
-                //     orElse: () {},
-                //     mainCurrentDataOptions: (e) => e.curOneDayData.fold(
-                //         () => () {}, (a) => a.fold((l) => () {}, (r) => )));
-              },
+              listener: (context, state) {},
               builder: (context, state) {
                 return Container(
                   child: state.maybeMap(
@@ -271,12 +256,14 @@ class _WeatherpageState extends State<Weatherpage> {
                                         return Column(
                                           children: [
                                             header(),
-                                            tempHeader(r.main.temp),
+                                            tempHeader(r.main.temp,
+                                                r.weather[index].icon),
                                             mainContentCurrDay(
                                                 r.main.humidity,
                                                 r.main.pressure,
                                                 r.clouds.all,
-                                                r.wind.speed)
+                                                r.wind.speed),
+                                            mainContent(),
                                           ],
                                         );
                                       },
@@ -291,76 +278,3 @@ class _WeatherpageState extends State<Weatherpage> {
     );
   }
 }
-// ///////////////////////////////////
-// import 'package:flutter/material.dart';
-// import 'package:forecasting/aplication/weather/bloc/weather_bloc.dart';
-// import 'package:forecasting/infrastukstur/weather/forecasting_weather_repository.dart';
-// import 'package:forecasting/injection.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-
-// class WeatherPage extends StatefulWidget {
-//   const WeatherPage({Key? key}) : super(key: key);
-
-//   @override
-//   State<WeatherPage> createState() => _WeatherPageState();
-// }
-
-// class _WeatherPageState extends State<WeatherPage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text("Tes Data")),
-//       body: Container(
-//           child: BlocProvider(
-//         create: (context) => getIt<WeatherBloc>(),
-//         child:
-//             BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
-//           return Container(
-//             child: Column(
-//               children: [
-//                 state.maybeMap(
-//                     orElse: (() => Container(
-//                           child: Text("Error"),
-//                         )),
-//                     mainDataOptions: (e) {
-//                       if (e.onLoading) {
-//                         return Container(
-//                           child: Center(
-//                             child: CircularProgressIndicator(),
-//                           ),
-//                         );
-//                       } else {
-//                         return e.weatherData.fold(
-//                             () => Container(
-//                                   child: Text("Datanya NONE"),
-//                                 ),
-//                             (a) => a.fold(
-//                                 (l) => Container(child: Text(l.toString())),
-//                                 (r) => Expanded(
-//                                       child: ListView.builder(
-//                                         itemCount: r.list.length,
-//                                         itemBuilder: (context, index) {
-//                                           return ListTile(
-//                                             title: Text(r.list[index].main.temp
-//                                                 .toString()),
-//                                           );
-//                                         },
-//                                       ),
-//                                     )));
-//                       }
-//                     }),
-//                 ElevatedButton(
-//                     onPressed: () {
-//                       context
-//                           .read<WeatherBloc>()
-//                           .add(WeatherEvent.getMainData());
-//                     },
-//                     child: Text("Tekan Akuh ")),
-//               ],
-//             ),
-//           );
-//         }),
-//       )),
-//     );
-//   }
-// }
